@@ -4,7 +4,7 @@
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
-
+#include "ModuleScene.h"
 
 using namespace std;
 
@@ -15,6 +15,7 @@ Application::Application()
 	modules.push_back(renderer = new ModuleRender());
 	modules.push_back(textures = new ModuleTextures());
 	modules.push_back(input = new ModuleInput());
+	modules.push_back(scene = new ModuleScene());
 	
 
 
@@ -26,12 +27,11 @@ Application::Application()
 Application::~Application()
 {
 	// TODO 6: Free module memory and check the result in Dr. Memory
-	for (list<Module*>::iterator it = modules.begin(); it != modules.end(); ++it)
-		(*it)->CleanUp();
 	delete window;
 	delete renderer;
 	delete textures;
 	delete input;
+	delete scene;
 }
 
 bool Application::Init()
