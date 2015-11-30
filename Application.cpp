@@ -15,7 +15,7 @@ Application::Application()
 	modules.push_back(renderer = new ModuleRender());
 	modules.push_back(textures = new ModuleTextures());
 	modules.push_back(input = new ModuleInput());
-	//HOla a todos
+	
 
 
 	// TODO 7: Create a new "scene" module that loads a texture and draws it on the screen
