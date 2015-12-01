@@ -30,9 +30,16 @@ bool ModuleInput::Init()
 update_status ModuleInput::Update()
 {
 	SDL_PumpEvents();
-
+	SDL_Event event;
 	keyboard = SDL_GetKeyboardState(NULL);
 
+	while (SDL_PollEvent(&event))
+	{
+		if (event.type == SDL_QUIT)
+		{
+			return UPDATE_STOP;
+		}
+	}
 	// TODO 1: Make the application properly close when ESC is pressed (do not use exit())
 	if (keyboard[SDL_SCANCODE_ESCAPE])
 	{

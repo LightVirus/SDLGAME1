@@ -1,7 +1,7 @@
 #pragma once
 #include "Module.h"
 #include "Application.h"
-#include "SDL/include/SDL.h"
+
 
 class Application;
 
@@ -11,7 +11,7 @@ public:
 	ModuleScene();
 	~ModuleScene();
 
-	bool Start();
+	update_status Update();
 
 
 
