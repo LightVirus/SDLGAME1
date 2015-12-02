@@ -1,9 +1,10 @@
 #pragma once
 #include <list>
+#include "Globals.h"
 #include "Module.h"
 #include "Application.h"
 
-
+struct Mix_Music;
 class Application;
 
 class ModuleSound : public Module

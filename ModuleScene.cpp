@@ -15,12 +15,16 @@ ModuleScene::~ModuleScene()
 }
 
 
+bool ModuleScene::Start()
+{
+	SDL_Texture* img = App->textures->Load("sprites.png");
+	return true;
+}
+
+
 update_status ModuleScene::Update()
 {
 	SDL_Texture* img = App->textures->Load("sprites.png");
-	SDL_Rect cuadrado;
-	cuadrado.w = 256;
-	cuadrado.h = 256;
-	App->renderer->Blit(img, 0, 0, &cuadrado);
+	App->renderer->Blit(img, 0, 0, NULL);
 	return UPDATE_CONTINUE;
 }

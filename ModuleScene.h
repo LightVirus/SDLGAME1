@@ -11,7 +11,9 @@ public:
 	ModuleScene();
 	~ModuleScene();
 
+	bool Start();
 	update_status Update();
+
 
 
 
