@@ -78,7 +78,6 @@
     <ClInclude Include="ModuleSound.h" />
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWindow.h" />
-    <ClInclude Include="SDL\include\SDL_stdinc.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />

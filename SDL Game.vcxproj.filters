@@ -40,7 +40,6 @@
     <ClInclude Include="ModuleSound.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="SDL\include\SDL_stdinc.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
