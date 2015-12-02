@@ -40,6 +40,9 @@
     <ClInclude Include="ModuleSound.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleTimer.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -67,6 +70,9 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleSound.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleTimer.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>

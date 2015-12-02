@@ -23,6 +23,7 @@ bool ModuleScene::Start()
 {
 	img = App->textures->Load("Game/sprites.png");
 	music1 = App->sound->LoadMusic("Game/music.ogg");
+	effect1 = App->sound->LoadSoundE("Game/effect.ogg");
 	Mix_VolumeMusic(50);
 	App->sound->PlayMusic(music1);
 	return true;
@@ -48,4 +49,9 @@ update_status ModuleScene::Update()
 	
 	App->renderer->Blit(img, x, y, NULL);
 	return UPDATE_CONTINUE;
+}
+
+void const ModuleScene::GoSound()
+{
+	App->sound->PlaySoundE(effect1);
 }

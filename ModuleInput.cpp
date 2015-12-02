@@ -1,6 +1,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleInput.h"
+#include "ModuleScene.h"
 #include "SDL/include/SDL.h"
 
 ModuleInput::ModuleInput()
@@ -44,6 +45,10 @@ update_status ModuleInput::Update()
 	if (keyboard[SDL_SCANCODE_ESCAPE])
 	{
 		return UPDATE_STOP;
+	}
+	if (keyboard[SDL_SCANCODE_SPACE])
+	{
+		App->scene->GoSound();
 	}
 	// Homework: Make the application close up when pressing “X” button of the window
 

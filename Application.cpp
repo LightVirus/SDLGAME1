@@ -34,6 +34,7 @@ Application::~Application()
 	delete textures;
 	delete input;
 	delete scene;
+	delete sound;
 }
 
 bool Application::Init()
