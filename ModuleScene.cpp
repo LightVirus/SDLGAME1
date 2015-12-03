@@ -59,7 +59,7 @@ update_status ModuleScene::Update()
 	timeText << "FPS: " << App->timer->finalfps;
 	SDL_Color White = { 255, 255, 255 };
 	SDL_Texture* fpstexture = App->textures->Font2Texture(MainFont, timeText.str().c_str(), White);
-	App->renderer->Blit(fpstexture, 10, 200, NULL);
+	App->renderer->Blit(fpstexture, 6, 455, NULL);
 	
 	
 	
