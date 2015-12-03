@@ -33,8 +33,8 @@ private:
 	int x = 0;
 	int y = 0;
 
-	int xdir = 1;
-	int ydir = 1;
+	int xdir = 2;
+	int ydir = 2;
 
 
 

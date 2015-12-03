@@ -33,18 +33,28 @@ void ModuleTimer::StartLoop()
 
 void ModuleTimer::EndLoop()
 {
-	deltatime = ((SDL_GetTicks() - frametimer) / 1000.0f);
+	lasttime = SDL_GetTicks() - frametimer;
 	fpscont++;
 }
 
 float ModuleTimer::CalculateFPS()
 {
-	fpstimercont = fpstimercont + deltatime;
-	if (fpstimercont > 1.0f)
+	fpstimercont = fpstimercont + lasttime;
+	if (fpstimercont > 1000)
 	{
-		fpstimercont = 0;
+		
+		fpstimercont = fpstimercont - 1000;
 		finalfps = fpscont;
 		fpscont = 0;
 	}
 	return finalfps;
+}
+
+void const ModuleTimer::FPSMax()
+{
+	int time = SDL_GetTicks() - frametimer;
+	if (time < (1000 / FPSMAX))
+	{
+		SDL_Delay((1000 / FPSMAX) - time);
+	}
 }

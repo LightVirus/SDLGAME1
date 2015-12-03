@@ -53,6 +53,8 @@ update_status ModuleScene::Update()
 	x = x + xdir;
 	y = y + ydir;
 
+	App->renderer->Blit(img, x, y, NULL);
+	
 	
 	stringstream timeText;
 	timeText.str("");
@@ -63,7 +65,7 @@ update_status ModuleScene::Update()
 	
 	
 	
-	App->renderer->Blit(img, x, y, NULL);
+
 	return UPDATE_CONTINUE;
 }
 

@@ -64,8 +64,10 @@ bool Application::Start()
 update_status Application::PreUpdate()
 {
 	update_status ret = UPDATE_CONTINUE;
+	
 	App->timer->StartLoop();
 	App->timer->CalculateFPS();
+
 	for(list<Module*>::iterator it = modules.begin(); it != modules.end() && ret == UPDATE_CONTINUE; ++it)
 		ret = (*it)->PreUpdate();
 
@@ -88,7 +90,12 @@ update_status Application::PostUpdate()
 
 	for (list<Module*>::iterator it = modules.begin(); it != modules.end() && ret == UPDATE_CONTINUE; ++it)
 		ret = (*it)->PostUpdate();
+	
+	if (FPSLOCK && !VSYNC)
+		App->timer->FPSMax();
+	
 	App->timer->EndLoop();
+
 	return ret;
 }
 

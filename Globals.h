@@ -20,7 +20,9 @@ enum update_status
 #define BORDERLESS false
 #define RESIZABLE false
 #define FULLSCREEN_DESKTOP false
-#define VSYNC true
+#define VSYNC false
+#define FPSLOCK true
+#define FPSMAX 59
 #define TITLE "Super Awesome Game"
 #define SPRITE_FILE "sprites.png"
 

@@ -9,15 +9,18 @@ public:
 	~ModuleTimer();
 
 	Uint32 getTime();
-	float deltatime = 0.0f;
+	int lasttime = 0;
+	int finalfps = 0;
+	int fpstimercont = 0;
+
 	bool Start();
 	void StartLoop();
 	void EndLoop();
 	float CalculateFPS();
-	int finalfps = 0;
+	void const FPSMax();
 
 private:
-	float fpstimercont = 0;
+	
 	Uint32 starttime = 0;
 	int fpscont = 0;
 	Uint32 frametimer = 0;
