@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "SDL/include/SDL_mixer.h"
 #include "SDL/include/SDL_image.h"
+#include "SDL/include/SDL_ttf.h"
 
 class Application;
 
@@ -20,6 +21,7 @@ private:
 	
 	//Textures
 	SDL_Texture* img = NULL;
+	TTF_Font* MainFont = NULL;
 
 	//Music
 	Mix_Music* music1 = NULL;

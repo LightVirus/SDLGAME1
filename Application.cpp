@@ -6,6 +6,7 @@
 #include "ModuleInput.h"
 #include "ModuleScene.h"
 #include "ModuleSound.h"
+#include "ModuleTimer.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ Application::Application()
 	modules.push_back(input = new ModuleInput());
 	modules.push_back(scene = new ModuleScene());
 	modules.push_back(sound = new ModuleSound());
+	modules.push_back(timer = new ModuleTimer());
 	
 
 
@@ -35,6 +37,7 @@ Application::~Application()
 	delete input;
 	delete scene;
 	delete sound;
+	delete timer;
 }
 
 bool Application::Init()
@@ -61,7 +64,8 @@ bool Application::Start()
 update_status Application::PreUpdate()
 {
 	update_status ret = UPDATE_CONTINUE;
-
+	App->timer->StartLoop();
+	App->timer->CalculateFPS();
 	for(list<Module*>::iterator it = modules.begin(); it != modules.end() && ret == UPDATE_CONTINUE; ++it)
 		ret = (*it)->PreUpdate();
 
@@ -84,7 +88,7 @@ update_status Application::PostUpdate()
 
 	for (list<Module*>::iterator it = modules.begin(); it != modules.end() && ret == UPDATE_CONTINUE; ++it)
 		ret = (*it)->PostUpdate();
-
+	App->timer->EndLoop();
 	return ret;
 }
 

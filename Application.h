@@ -10,6 +10,7 @@ class ModuleTextures;
 class ModuleInput;
 class ModuleScene;
 class ModuleSound;
+class ModuleTimer;
 
 class Application
 {
@@ -25,6 +26,8 @@ public:
 	update_status PostUpdate();
 	bool CleanUp();
 
+
+
 public:
 	ModuleRender* renderer;
 	ModuleWindow* window;
@@ -32,6 +35,7 @@ public:
 	ModuleInput* input;
 	ModuleScene* scene;
 	ModuleSound* sound;
+	ModuleTimer* timer;
 
 private:
 

@@ -3,7 +3,8 @@
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "SDL/include/SDL.h"
-
+#include "SDL/include/SDL_ttf.h"
+#pragma comment( lib, "SDL/libx86/SDL2_ttf.lib" )
 #include "SDL/include/SDL_image.h"
 #pragma comment( lib, "SDL/libx86/SDL2_image.lib" )
 
@@ -17,6 +18,7 @@ ModuleTextures::ModuleTextures()
 ModuleTextures::~ModuleTextures()
 {
 	IMG_Quit();
+	TTF_Quit();
 }
 
 // Called before render is available
@@ -32,6 +34,11 @@ bool ModuleTextures::Init()
 	if((init & flags) != flags)
 	{
 		LOG("Could not initialize Image lib. IMG_Init: %s", IMG_GetError());
+		ret = false;
+	}
+	if (TTF_Init() == -1)
+	{
+		printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
 		ret = false;
 	}
 
@@ -77,4 +84,18 @@ SDL_Texture* const ModuleTextures::Load(const char* path)
 	}
 
 	return texture;
+}
+
+TTF_Font* const ModuleTextures::LoadFont(const char* path, int size)
+{
+	TTF_Font* font = TTF_OpenFont(path, size);
+	fonts.push_back(font);
+	return font;
+}
+
+SDL_Texture* ModuleTextures::Font2Texture(TTF_Font* font, const char* text, SDL_Color color)
+{
+	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(font, text, color);
+	SDL_Texture* Message = SDL_CreateTextureFromSurface(App->renderer->renderer, surfaceMessage);
+	return Message;
 }

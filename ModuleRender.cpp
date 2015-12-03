@@ -4,6 +4,7 @@
 #include "ModuleWindow.h"
 #include "SDL/include/SDL.h"
 
+
 ModuleRender::ModuleRender()
 {
 }
@@ -31,6 +32,7 @@ bool ModuleRender::Init()
 		LOG("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
+	
 
 	return ret;
 }
@@ -58,6 +60,7 @@ bool ModuleRender::CleanUp()
 	{
 		SDL_DestroyRenderer(renderer);
 	}
+	
 
 	return true;
 }
