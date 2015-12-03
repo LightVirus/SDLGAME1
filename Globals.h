@@ -22,7 +22,7 @@ enum update_status
 #define FULLSCREEN_DESKTOP false
 #define VSYNC false
 #define FPSLOCK true
-#define FPSMAX 59
+#define FPSMAX 50.0f
 #define TITLE "Super Awesome Game"
 #define SPRITE_FILE "sprites.png"
 

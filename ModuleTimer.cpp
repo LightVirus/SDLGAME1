@@ -52,7 +52,7 @@ float ModuleTimer::CalculateFPS()
 
 void const ModuleTimer::FPSMax()
 {
-	int time = SDL_GetTicks() - frametimer;
+	float time = SDL_GetTicks() - frametimer;
 	if (time < (1000 / FPSMAX))
 	{
 		SDL_Delay((1000 / FPSMAX) - time);
