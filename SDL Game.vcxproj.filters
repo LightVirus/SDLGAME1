@@ -43,6 +43,9 @@
     <ClInclude Include="ModuleTimer.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

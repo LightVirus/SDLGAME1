@@ -50,10 +50,7 @@ update_status ModuleScene::Update()
 		//y = SCREEN_WIDTH - 256;
 		ydir = ydir * -1;
 	}
-	stringstream debugtext;
-	debugtext.str("");
-	debugtext << "Deltatime: " << App->timer->deltatime;
-	LOG(debugtext.str().c_str());
+	
 	x = x + (xdir*App->timer->deltatime);
 	y = y + (ydir*App->timer->deltatime);
 
