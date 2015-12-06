@@ -7,7 +7,7 @@
 #pragma comment( lib, "SDL/libx86/SDL2_ttf.lib" )
 #include "SDL/include/SDL_image.h"
 #pragma comment( lib, "SDL/libx86/SDL2_image.lib" )
-
+#include <vld.h>
 using namespace std;
 
 ModuleTextures::ModuleTextures()
@@ -97,5 +97,6 @@ SDL_Texture* ModuleTextures::Font2Texture(TTF_Font* font, const char* text, SDL_
 {
 	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(font, text, color);
 	SDL_Texture* Message = SDL_CreateTextureFromSurface(App->renderer->renderer, surfaceMessage);
+	
 	return Message;
 }

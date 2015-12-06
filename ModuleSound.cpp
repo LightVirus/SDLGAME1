@@ -5,7 +5,7 @@
 #include "SDL/include/SDL.h"
 #include "SDL/include/SDL_mixer.h"
 #pragma comment( lib, "SDL/libx86/SDL2_mixer.lib" )
-
+#include <vld.h>
 ModuleSound::ModuleSound()
 {
 }

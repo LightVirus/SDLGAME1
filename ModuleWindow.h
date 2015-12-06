@@ -3,7 +3,7 @@
 
 #include "Module.h"
 #include "SDL/include/SDL.h"
-
+#include <vld.h>
 class Application;
 
 class ModuleWindow : public Module

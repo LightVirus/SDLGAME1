@@ -4,7 +4,7 @@
 #include "SDL/include/SDL_mixer.h"
 #include "SDL/include/SDL_image.h"
 #include "SDL/include/SDL_ttf.h"
-
+#include <vld.h>
 class Application;
 
 class ModuleScene : public Module
@@ -30,11 +30,11 @@ private:
 	Mix_Chunk* effect1 = NULL;
 	Mix_Chunk* effect2 = NULL;
 
-	int x = 0;
-	int y = 0;
+	float x = 0.0f;
+	float y = 0.0f;
 
-	int xdir = 2;
-	int ydir = 2;
+	float xdir = 50.0f;
+	float ydir = 50.0f;
 
 
 

@@ -1,7 +1,7 @@
 #include "ModuleTimer.h"
 #include "SDL/include/SDL.h"
 #include <string>
-
+#include <vld.h>
 using namespace std;
 
 ModuleTimer::ModuleTimer()
@@ -34,6 +34,7 @@ void ModuleTimer::StartLoop()
 void ModuleTimer::EndLoop()
 {
 	lasttime = SDL_GetTicks() - frametimer;
+	deltatime = lasttime / 1000.0f;
 	fpscont++;
 }
 

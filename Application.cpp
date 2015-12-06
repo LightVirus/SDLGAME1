@@ -7,6 +7,7 @@
 #include "ModuleScene.h"
 #include "ModuleSound.h"
 #include "ModuleTimer.h"
+#include <vld.h>
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <windows.h>
 #include <stdio.h>
-
+#include <vld.h>
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
 
 void log(const char file[], int line, const char* format, ...);
@@ -20,8 +20,8 @@ enum update_status
 #define BORDERLESS false
 #define RESIZABLE false
 #define FULLSCREEN_DESKTOP false
-#define VSYNC false
-#define FPSLOCK true
+#define VSYNC true
+#define FPSLOCK false
 #define FPSMAX 50.0f
 #define TITLE "Super Awesome Game"
 #define SPRITE_FILE "sprites.png"

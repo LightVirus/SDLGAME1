@@ -12,7 +12,7 @@
 #include "SDL/include/SDL.h"
 #include "SDL/include/SDL_mixer.h"
 #include "SDL/include/SDL_image.h"
-
+#include <vld.h>
 using namespace std;
 
 
@@ -50,8 +50,12 @@ update_status ModuleScene::Update()
 		//y = SCREEN_WIDTH - 256;
 		ydir = ydir * -1;
 	}
-	x = x + xdir;
-	y = y + ydir;
+	stringstream debugtext;
+	debugtext.str("");
+	debugtext << "Deltatime: " << App->timer->deltatime;
+	LOG(debugtext.str().c_str());
+	x = x + (xdir*App->timer->deltatime);
+	y = y + (ydir*App->timer->deltatime);
 
 	App->renderer->Blit(img, x, y, NULL);
 	
@@ -62,7 +66,7 @@ update_status ModuleScene::Update()
 	SDL_Color White = { 255, 255, 255 };
 	SDL_Texture* fpstexture = App->textures->Font2Texture(MainFont, timeText.str().c_str(), White);
 	App->renderer->Blit(fpstexture, 6, 455, NULL);
-	
+	SDL_DestroyTexture(fpstexture);
 	
 	
 
