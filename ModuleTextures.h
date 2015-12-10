@@ -3,6 +3,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include "SDL/include/SDL_ttf.h"
+#include <vld.h>
 struct SDL_Texture;
 
 class ModuleTextures : public Module

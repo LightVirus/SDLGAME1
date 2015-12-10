@@ -1,5 +1,6 @@
 #pragma once
 #include "Globals.h"
+#include <vld.h>
 class Application;
 
 class Module

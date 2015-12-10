@@ -1,7 +1,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleWindow.h"
-
+#include <vld.h>
 ModuleWindow::ModuleWindow()
 {
 }

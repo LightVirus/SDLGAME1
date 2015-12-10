@@ -3,7 +3,7 @@
 #include "ModuleInput.h"
 #include "ModuleScene.h"
 #include "SDL/include/SDL.h"
-
+#include <vld.h>
 ModuleInput::ModuleInput()
 {}
 

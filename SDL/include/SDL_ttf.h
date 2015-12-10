@@ -20,7 +20,7 @@
 */
 
 /* This library is a wrapper around the excellent FreeType 2.0 library,
-   available at:
+   available at: cosa
     http://www.freetype.org/
 */
 

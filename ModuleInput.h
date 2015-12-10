@@ -1,7 +1,7 @@
 #pragma once
 #include "Module.h"
 #include "Globals.h"
-
+#include <vld.h>
 typedef unsigned __int8 Uint8;
 
 class ModuleInput : public Module

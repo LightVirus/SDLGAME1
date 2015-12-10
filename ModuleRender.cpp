@@ -3,7 +3,7 @@
 #include "ModuleRender.h"
 #include "ModuleWindow.h"
 #include "SDL/include/SDL.h"
-
+#include <vld.h>
 
 ModuleRender::ModuleRender()
 {
@@ -66,12 +66,12 @@ bool ModuleRender::CleanUp()
 }
 
 // Blit to screen
-bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
+bool ModuleRender::Blit(SDL_Texture* texture, float x, float y, SDL_Rect* section)
 {
 	bool ret = true;
 	SDL_Rect rect;
-	rect.x = x;
-	rect.y = y;
+	rect.x = (int)x;
+	rect.y = (int)y;
 
 	if(section != NULL)
 	{
