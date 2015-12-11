@@ -11,6 +11,9 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{ad89cf24-f35e-4d0c-90e5-820c054c274d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GO">
+      <UniqueIdentifier>{72565b4e-74f1-410a-bd1e-50935a7d30a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ModuleInput.h">
@@ -46,6 +49,9 @@
     <ClInclude Include="Animation.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>GO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -77,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="ModuleTimer.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>GO</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
