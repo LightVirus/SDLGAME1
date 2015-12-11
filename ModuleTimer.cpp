@@ -1,5 +1,6 @@
 #include "ModuleTimer.h"
 #include "SDL/include/SDL.h"
+#include "Timer.h"
 #include <string>
 #include <vld.h>
 using namespace std;
@@ -58,4 +59,27 @@ void const ModuleTimer::FPSMax()
 	{
 		SDL_Delay((1000 / FPSMAX) - time);
 	}
+}
+
+
+Timer ModuleTimer::createtimer(float sec)
+{
+	Timer count = Timer();
+	count.endtime = Uint32(sec * 1000);
+	count.timerstart = SDL_GetTicks();
+	return count;
+}
+
+bool ModuleTimer::UpdateTimers(Timer &time)
+{
+	if (!time.timerended)
+	{
+		time.timepast = SDL_GetTicks() - time.timerstart;
+		if (time.timepast >= time.endtime)
+		{
+			time.timerended = true;
+		}
+	}
+	return time.timerended;
+
 }

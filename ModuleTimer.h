@@ -1,7 +1,9 @@
 #pragma once
 #include "Module.h"
 #include "SDL/include/SDL.h"
+#include "Timer.h"
 #include <vld.h>
+#include <list>
 class ModuleTimer :
 	public Module
 {
@@ -20,9 +22,12 @@ public:
 	void EndLoop();
 	float CalculateFPS();
 	void const FPSMax();
+	Timer createtimer(float secs);
+	bool UpdateTimers(Timer &time);
+	bool CleanUp();
 
 private:
-	
+	std::list<Timer> timerlist;
 	Uint32 starttime = 0;
 	int fpscont = 0;
 	Uint32 frametimer = 0;
