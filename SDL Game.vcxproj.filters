@@ -52,6 +52,12 @@
     <ClInclude Include="GameObject.h">
       <Filter>GO</Filter>
     </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleParticle.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -86,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>GO</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleParticle.cpp">
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
