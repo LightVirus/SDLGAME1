@@ -3,8 +3,10 @@
 class Timer
 {
 public:
-	Timer();
-	~Timer();
+	Timer()
+	{}
+	~Timer()
+	{}
 
 	Uint32 timerstart = 0;
 	Uint32 timepast = 0;

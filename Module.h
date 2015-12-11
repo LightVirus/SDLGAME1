@@ -37,11 +37,11 @@ public:
 
 	virtual bool CleanUp() 
 	{ 
-		return true; 
+		return true;
 	}
 
-	virtual void OnCollision(Collider a, Collider b)
+	/*virtual void OnCollision(Collider a, Collider b)
 	{
 
-	}
+	}*/
 };
