@@ -19,7 +19,7 @@ public:
 	bool CleanUp();
 
 	bool Blit(SDL_Texture* texture, float x, float y, SDL_Rect* section);
-	
+	bool BlitCollider(SDL_Color color, SDL_Rect rect);
 
 public:
 	SDL_Renderer* renderer = NULL;

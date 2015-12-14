@@ -13,7 +13,6 @@ public:
 	ModuleCollider();
 	~ModuleCollider();
 
-
 	std::list<Collider> Colliders;
 
 	void CheckAllCol();
@@ -24,10 +23,11 @@ public:
 	
 
 	Collider* CreateCol(SDL_Rect box, item_type type, GameObject * parent);
-	void DelCol(Collider* col);
+	Collider* DelCol(Collider* col);
 	void DelMarkedCol();
 	void RenderCol();
 	bool Collision(SDL_Rect a, SDL_Rect b);
 	void UpdateCol();
+	bool CleanUp();
 };
 

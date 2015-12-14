@@ -7,12 +7,16 @@
 #include "ModuleWindow.h"
 #include "ModuleSound.h"
 #include "ModuleTimer.h"
+#include "ModuleCollider.h"
+#include "GameObject.h"
+#include "Player.h"
 #include <string>
 #include <sstream>
 #include "SDL/include/SDL.h"
 #include "SDL/include/SDL_mixer.h"
 #include "SDL/include/SDL_image.h"
 #include <vld.h>
+
 using namespace std;
 
 
@@ -28,13 +32,15 @@ ModuleScene::~ModuleScene()
 
 bool ModuleScene::Start()
 {
-	img = App->textures->Load("Game/sprites.png");
+	mainsprites = App->textures->Load("Game/Images/mainsprites.png");
 	music1 = App->sound->LoadMusic("Game/music.ogg");
-	effect1 = App->sound->LoadSoundE("Game/effect.ogg");
+	//effect1 = App->sound->LoadSoundE("Game/effect.ogg");
 	MainFont = App->textures->LoadFont("Game/mainfont.ttf", 24);
 	Mix_VolumeMusic(50);
 	App->sound->PlayMusic(music1);
 	return true;
+
+	// 5 9  30 47
 }
 
 

@@ -13,7 +13,7 @@ public:
 	float posx = 0;
 	float posy = 0;
 	bool visible = false;
-	GameObject* parent;
+	GameObject* parent = NULL;
 	item_type type;
 	bool deleteme = false;
 
@@ -23,9 +23,24 @@ public:
 
 	}
 
-	void SetGameObj(float x, float y, bool vis, item_type item, bool del);
+	void SetGameObj(float x, float y, bool vis, item_type item, bool del)
+	{
+		posx = x;
+		posy = y;
+		visible = vis;
+		type = item;
+		deleteme = del;
+	}
 
-	void SetGameObj(float x, float y, bool vis, item_type item, bool del, GameObject* dad);
+	void SetGameObj(float x, float y, bool vis, item_type item, bool del, GameObject* dad)
+	{
+		posx = x;
+		posy = y;
+		visible = vis;
+		type = item;
+		deleteme = del;
+		parent = dad;
+	}
 
 
 	virtual void Update()
@@ -36,7 +51,10 @@ public:
 	{
 
 	}
+	virtual void RenderGameObj()
+	{
 
+	}
 
 
 };

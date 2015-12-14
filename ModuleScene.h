@@ -1,6 +1,7 @@
 #pragma once
 #include "Module.h"
 #include "Application.h"
+#include "GameObject.h"
 #include "SDL/include/SDL_mixer.h"
 #include "SDL/include/SDL_image.h"
 #include "SDL/include/SDL_ttf.h"
@@ -20,7 +21,7 @@ public:
 private:
 	
 	//Textures
-	SDL_Texture* img = NULL;
+	SDL_Texture* mainsprites = NULL;
 	TTF_Font* MainFont = NULL;
 
 	//Music

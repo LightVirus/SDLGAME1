@@ -1,4 +1,6 @@
 #include "ModuleCollider.h"
+#include "ModuleRender.h"
+#include "Application.h"
 #include "GameObject.h"
 #include "Collider.h"
 #include <list>
@@ -77,16 +79,30 @@ Collider* ModuleCollider::CreateCol(SDL_Rect box, item_type type, GameObject * p
 }
 
 
-void ModuleCollider::DelCol(Collider * col)
+Collider* ModuleCollider::DelCol(Collider * col)
 {
+	col->deleteme = true;
+	col = NULL;
+	return col;
 }
 
 void ModuleCollider::DelMarkedCol()
 {
+	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	{
+		if (itA->deleteme)
+		{
+			Colliders.erase(itA);
+		}
+	}
 }
 
 void ModuleCollider::RenderCol()
 {
+	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	{
+		App->renderer->BlitCollider(itA->color, itA->rect);
+	}
 }
 
 bool ModuleCollider::Collision(SDL_Rect a, SDL_Rect b)
@@ -134,4 +150,18 @@ bool ModuleCollider::Collision(SDL_Rect a, SDL_Rect b)
 
 void ModuleCollider::UpdateCol()
 {
+	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	{
+		itA->rect.x = itA->parent->posx;
+		itA->rect.y = itA->parent->posy;
+	}
+}
+
+bool ModuleCollider::CleanUp()
+{
+	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	{
+		delete &itA;
+	}
+	Colliders.clear();
 }
