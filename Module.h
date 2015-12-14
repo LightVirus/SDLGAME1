@@ -40,8 +40,5 @@ public:
 		return true;
 	}
 
-	/*virtual void OnCollision(Collider a, Collider b)
-	{
-
-	}*/
+	
 };

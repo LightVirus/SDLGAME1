@@ -7,6 +7,7 @@
 #include "ModuleScene.h"
 #include "ModuleSound.h"
 #include "ModuleTimer.h"
+#include "ModuleCollider.h"
 #include <vld.h>
 
 using namespace std;
@@ -21,6 +22,7 @@ Application::Application()
 	modules.push_back(scene = new ModuleScene());
 	modules.push_back(sound = new ModuleSound());
 	modules.push_back(timer = new ModuleTimer());
+	modules.push_back
 	
 
 

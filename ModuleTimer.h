@@ -24,7 +24,7 @@ public:
 	void const FPSMax();
 	Timer createtimer(float secs);
 	bool UpdateTimers(Timer &time);
-	bool CleanUp();
+	
 
 private:
 	std::list<Timer> timerlist;

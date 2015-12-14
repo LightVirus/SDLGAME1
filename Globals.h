@@ -13,9 +13,29 @@ enum update_status
 	UPDATE_ERROR
 };
 
+enum item_type
+{
+	player = 1,
+	car,
+	mbike,
+	heli,
+	road,
+	sector
+};
+
+struct Collider
+{
+	GameObject* parent;
+	SDL_Rect rect;
+	SDL_Color color;
+	bool deleteme;
+};
+
+
 // Configuration -----------
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define DEBUG_ALPHA 180
+#define SCREEN_WIDTH 880
+#define SCREEN_HEIGHT 750
 #define FULLSCREEN false
 #define BORDERLESS false
 #define RESIZABLE false
@@ -23,6 +43,5 @@ enum update_status
 #define VSYNC true
 #define FPSLOCK false
 #define FPSMAX 50.0f
-#define TITLE "Super Awesome Game"
-#define SPRITE_FILE "sprites.png"
+#define TITLE "Spy Hunter"
 

@@ -55,7 +55,7 @@
     <ClInclude Include="Timer.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleParticle.h">
+    <ClInclude Include="ModuleCollider.h">
       <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
@@ -90,10 +90,7 @@
     <ClCompile Include="ModuleTimer.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>GO</Filter>
-    </ClCompile>
-    <ClCompile Include="ModuleParticle.cpp">
+    <ClCompile Include="ModuleCollider.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
