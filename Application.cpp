@@ -22,7 +22,7 @@ Application::Application()
 	modules.push_back(scene = new ModuleScene());
 	modules.push_back(sound = new ModuleSound());
 	modules.push_back(timer = new ModuleTimer());
-	modules.push_back
+	modules.push_back(collider = new ModuleCollider());
 	
 
 

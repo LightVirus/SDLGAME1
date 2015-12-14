@@ -2,6 +2,8 @@
 #include <windows.h>
 #include <stdio.h>
 #include <vld.h>
+//#include "GameObject.h"
+#include "SDL/include/SDL.h"
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
 
 void log(const char file[], int line, const char* format, ...);
@@ -15,7 +17,8 @@ enum update_status
 
 enum item_type
 {
-	player = 1,
+	null,
+	player,
 	car,
 	mbike,
 	heli,
@@ -23,13 +26,6 @@ enum item_type
 	sector
 };
 
-struct Collider
-{
-	GameObject* parent;
-	SDL_Rect rect;
-	SDL_Color color;
-	bool deleteme;
-};
 
 
 // Configuration -----------

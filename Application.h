@@ -11,6 +11,7 @@ class ModuleInput;
 class ModuleScene;
 class ModuleSound;
 class ModuleTimer;
+class ModuleCollider;
 
 class Application
 {
@@ -36,6 +37,7 @@ public:
 	ModuleScene* scene;
 	ModuleSound* sound;
 	ModuleTimer* timer;
+	ModuleCollider* collider;
 
 private:
 

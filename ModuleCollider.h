@@ -2,6 +2,8 @@
 #include "Module.h"
 #include "Globals.h"
 #include "GameObject.h"
+#include "SDL/include/SDL.h"
+#include "Collider.h"
 #include <vld.h>
 #include <list>
 class ModuleCollider :
@@ -21,10 +23,11 @@ public:
 
 	
 
-	Collider * CreateCol(SDL_Rect box, item_type type, GameObject * parent);
+	Collider* CreateCol(SDL_Rect box, item_type type, GameObject * parent);
 	void DelCol(Collider* col);
 	void DelMarkedCol();
 	void RenderCol();
 	bool Collision(SDL_Rect a, SDL_Rect b);
+	void UpdateCol();
 };
 

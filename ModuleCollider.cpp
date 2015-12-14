@@ -1,5 +1,8 @@
 #include "ModuleCollider.h"
+#include "GameObject.h"
+#include "Collider.h"
 #include <list>
+
 
 
 
@@ -33,7 +36,8 @@ Collider* ModuleCollider::CreateCol(SDL_Rect box, item_type type, GameObject * p
 {
 	Collider col;
 	Colliders.push_back(col);
-	Collider* pointer = Colliders[Colliders.end];
+	Collider* pointer = &Colliders.back();
+	
 	pointer->parent = parent;
 	pointer->rect = box;
 	pointer->color.a = DEBUG_ALPHA;
@@ -126,4 +130,8 @@ bool ModuleCollider::Collision(SDL_Rect a, SDL_Rect b)
 	}
 
 	return true;
+}
+
+void ModuleCollider::UpdateCol()
+{
 }
