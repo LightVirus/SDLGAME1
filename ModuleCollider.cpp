@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "GameObject.h"
 #include "Collider.h"
+#include "SDL/include/SDL.h"
 #include <list>
 
 
@@ -25,7 +26,7 @@ void ModuleCollider::CheckAllCol()
 		{
 			if (itA != itB && !itA->deleteme && !itB->deleteme)
 			{
-				if (Collision(itA->rect, itB->rect))
+				if (SDL_HasIntersection(&itA->rect, &itB->rect))
 				{
 					itA->parent->OnCollision(itB->parent);
 				}
