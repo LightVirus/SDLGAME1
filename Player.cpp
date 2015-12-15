@@ -13,18 +13,20 @@ Player::~Player()
 {
 }
 
-void Player::SetPlayer(Collider* collider, SDL_Rect cuadro, SDL_Texture* Tex)
+void Player::SetPlayer(Collider* collider, SDL_Rect cuadro, SDL_Rect cuadrotex, SDL_Texture* Tex)
 {
 	col = collider;
-	rect = cuadro;
+	Rect = cuadro;
+	TextureRect = cuadrotex;
 	MainTex = Tex;
 }
-void Player::RenderGameObj()
+bool Player::RenderGameObj()
 {
-	int posxreal = posx + (rect.x / 2);
+	int posxreal = posx + (TextureRect.x / 2);
 	if (MainTex != NULL)
 	{
-		App->renderer->Blit(MainTex, posxreal, posy, &rect);
+		App->renderer->Blit(MainTex, posxreal, posy, &TextureRect);
 	}
+	return true;
 	
 }

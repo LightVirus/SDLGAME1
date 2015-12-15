@@ -46,29 +46,24 @@ bool ModuleScene::Start()
 
 update_status ModuleScene::Update()
 {
-	if ((x + 256) > SCREEN_WIDTH || x < 0)
-	{
-		//x = SCREEN_WIDTH - 256;
-		xdir = xdir * -1;
-	}
-	if ((y + 256) > SCREEN_HEIGHT || y < 0)
-	{
-		//y = SCREEN_WIDTH - 256;
-		ydir = ydir * -1;
-	}
 	
-	x = x + (xdir*App->timer->deltatime);
-	y = y + (ydir*App->timer->deltatime);
+	// Player
 
-	App->renderer->Blit(img, x, y, NULL);
 	
 	
+	
+	
+	
+	// COlliders
+	App->collider->RenderCol();
+	
+	// FPS
 	stringstream timeText;
 	timeText.str("");
 	timeText << "FPS: " << App->timer->finalfps;
 	SDL_Color White = { 255, 255, 255 };
 	SDL_Texture* fpstexture = App->textures->Font2Texture(MainFont, timeText.str().c_str(), White);
-	App->renderer->Blit(fpstexture, 6, 455, NULL);
+	App->renderer->Blit(fpstexture, 6, SCREEN_HEIGHT - 25, NULL);
 	SDL_DestroyTexture(fpstexture);
 	
 	

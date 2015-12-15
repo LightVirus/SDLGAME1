@@ -92,7 +92,7 @@ bool ModuleRender::Blit(SDL_Texture* texture, float x, float y, SDL_Rect* sectio
 	return ret;
 }
 
-bool ModuleRender::BlitCollider(SDL_Color color, SDL_Rect rect)
+void ModuleRender::BlitCollider(SDL_Color color, SDL_Rect rect)
 {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawRect(renderer, &rect);

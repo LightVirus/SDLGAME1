@@ -165,4 +165,5 @@ bool ModuleCollider::CleanUp()
 		delete &itA;
 	}
 	Colliders.clear();
+	return true;
 }

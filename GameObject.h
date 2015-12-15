@@ -7,8 +7,8 @@
 class GameObject
 {
 public:
-	GameObject();
-	~GameObject();
+	GameObject() {}
+	//~GameObject() {}
 
 	float posx = 0;
 	float posy = 0;
@@ -43,17 +43,17 @@ public:
 	}
 
 
-	virtual void Update()
+	virtual bool Update()
 	{
-
+		return true;
 	}
-	virtual void LateUpdate()
+	virtual bool LateUpdate()
 	{
-
+		return true;
 	}
-	virtual void RenderGameObj()
+	virtual bool RenderGameObj()
 	{
-
+		return true;
 	}
 
 
