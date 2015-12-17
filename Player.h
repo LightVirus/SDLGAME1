@@ -23,7 +23,7 @@ public:
 	void SetPlayer(Collider* collider, SDL_Rect cuadro, SDL_Rect cuadrotex, SDL_Texture* Tex);
 	void RenderGameObj();
 	void Update();
-	void OnCollision(GameObject* ColWith);
+	void OnCollisionEnter(GameObject* ColWith);
 
 
 

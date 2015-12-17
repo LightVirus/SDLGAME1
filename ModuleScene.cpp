@@ -107,7 +107,7 @@ update_status ModuleScene::Update()
 	SDL_Texture* fpstexture = App->textures->Font2Texture(MainFont, timeText.str().c_str(), White);
 	App->renderer->Blit(fpstexture, 6, SCREEN_HEIGHT - 25, NULL);
 	SDL_DestroyTexture(fpstexture);
-	
+	timeText.clear();
 	
 	if (fristtime)
 		fristtime = false;

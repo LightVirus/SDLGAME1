@@ -20,15 +20,33 @@ ModuleCollider::~ModuleCollider()
 
 void ModuleCollider::CheckAllCol()
 {
-	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
 	{
-		for (list<Collider>::iterator itB = Colliders.begin(); itB != Colliders.end(); ++itB)
+		for (list<Collider*>::iterator itB = Colliders.begin(); itB != Colliders.end(); ++itB)
 		{
 			if (itA != itB)
 			{
-				if (Collision(itA->rect, itB->rect))
+				if (SDL_HasIntersection(&(*itA)->rect, &(*itB)->rect))
 				{
-					itA->parent->OnCollision(itB->parent);
+					(*itA)->parent->OnCollisionEnter((*itB)->parent);
+					
+					/*if ((*itA)->lastcollisions.empty() == false)
+					{
+						bool before = false;
+						for (list<Collider*>::iterator itC = (*itA)->lastcollisions.begin(); itC != (*itA)->lastcollisions.end(); ++itC)
+						{
+							if ((*itB) == (*itC))
+							{
+								before = true;
+							}
+						}
+					}
+					else
+					{
+						
+						(*itA)->lastcollisions.push_back(*itA);
+					}*/
+					
 				}
 			}
 		}
@@ -37,9 +55,9 @@ void ModuleCollider::CheckAllCol()
 
 Collider* ModuleCollider::CreateCol(SDL_Rect box, item_type type, GameObject * parent)
 {
-	Collider col;
+	Collider* col = new Collider();
 	Colliders.push_back(col);
-	Collider* pointer = &Colliders.back();
+	Collider* pointer = Colliders.back();
 	pointer->localrect = box;
 	pointer->parent = parent;
 	pointer->rect = box;
@@ -91,24 +109,27 @@ Collider* ModuleCollider::DelCol(Collider * col)
 
 void ModuleCollider::DelMarkedCol()
 {
-	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end();)
 	{
-		if (itA->deleteme)
+		if ((*itA)->deleteme)
 		{
+			RELEASE(*itA);
 			Colliders.erase(itA);
 		}
+		else
+			++itA;
 	}
 }
 
 void ModuleCollider::RenderCol()
 {
-	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
 	{
-		App->renderer->BlitCollider(itA->color, itA->rect);
+		App->renderer->BlitCollider((*itA)->color, (*itA)->rect);
 	}
 }
 
-bool ModuleCollider::Collision(SDL_Rect a, SDL_Rect b)
+/*bool ModuleCollider::Collision(SDL_Rect a, SDL_Rect b)
 {
 	
 	int leftA, leftB;
@@ -149,22 +170,22 @@ bool ModuleCollider::Collision(SDL_Rect a, SDL_Rect b)
 	}
 
 	return true;
-}
+}*/
 
 void ModuleCollider::UpdateCol()
 {
-	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
 	{
-		itA->rect.x = itA->parent->posx - (itA->rect.w / 2);
-		itA->rect.y = itA->parent->posy;
+		(*itA)->rect.x = (*itA)->parent->posx - ((*itA)->rect.w / 2);
+		(*itA)->rect.y = (*itA)->parent->posy;
 	}
 }
 
 bool ModuleCollider::CleanUp()
 {
-	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end(); itA++)
 	{
-		itA->~Collider();
+		RELEASE(*itA);
 	}
 	Colliders.clear();
 	return true;

@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleRender.h"
 #include "ModuleTimer.h"
+#include "ModuleInput.h"
 #include <sstream>
 
 
@@ -25,20 +26,24 @@ void Player::SetPlayer(Collider* collider, SDL_Rect cuadro, SDL_Rect cuadrotex, 
 
 void Player::Update()
 {
-	if (derecha)
+	
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
+	{
+		if (xvel > 0)
+			xvel = 0;
+		xvel = xvel - 10;
+		if (xvel < -10000)
+			xvel = -10000;
+	}
+	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
 	{ 
-		xvel = 0;
+		if (xvel < 0)
+			xvel = 0;
 		xvel = xvel + 10 ;
 		if (xvel > 10000)
 			xvel = 10000;
 	}
-	else if (izquierda)
-	{
-		xvel = 0;
-		xvel = xvel - 10 ;
-		if (xvel < -10000)
-			xvel = -10000;
-	}
+	
 	else
 	{
 		xvel = 0;
@@ -51,7 +56,7 @@ void Player::Update()
 	col->rect.y = col->parent->posy;
 }
 
-void Player::OnCollision(GameObject * ColWith)
+void Player::OnCollisionEnter(GameObject * ColWith)
 {
 	LOG("COLLISION WITH PLAYER DETECTED");
 }

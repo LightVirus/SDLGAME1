@@ -20,7 +20,7 @@ public:
 	bool deleteme = false;
 
 
-	virtual void OnCollision(GameObject* ColWith)
+	virtual void OnCollisionEnter(GameObject* ColWith)
 	{
 
 	}
