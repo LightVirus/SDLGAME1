@@ -84,6 +84,7 @@
     <ClInclude Include="ModuleTimer.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Road.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>

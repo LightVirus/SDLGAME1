@@ -24,9 +24,9 @@ void ModuleCollider::CheckAllCol()
 	{
 		for (list<Collider>::iterator itB = Colliders.begin(); itB != Colliders.end(); ++itB)
 		{
-			if (itA != itB && !itA->deleteme && !itB->deleteme)
+			if (itA != itB)
 			{
-				if (SDL_HasIntersection(&itA->rect, &itB->rect))
+				if (Collision(itA->rect, itB->rect))
 				{
 					itA->parent->OnCollision(itB->parent);
 				}
@@ -40,7 +40,7 @@ Collider* ModuleCollider::CreateCol(SDL_Rect box, item_type type, GameObject * p
 	Collider col;
 	Colliders.push_back(col);
 	Collider* pointer = &Colliders.back();
-	
+	pointer->localrect = box;
 	pointer->parent = parent;
 	pointer->rect = box;
 	pointer->color.a = DEBUG_ALPHA;
@@ -78,6 +78,8 @@ Collider* ModuleCollider::CreateCol(SDL_Rect box, item_type type, GameObject * p
 	}
 	return pointer;
 }
+
+
 
 
 Collider* ModuleCollider::DelCol(Collider * col)

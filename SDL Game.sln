@@ -1,14 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDL Game - Master 1", "SDL Game.vcxproj", "{746CC4C3-787F-4B0E-AA66-E388FE3FF4F6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{432A1C61-4ABF-4CEC-8970-A53C0F085B9F}"
 	ProjectSection(SolutionItems) = preProject
 		SDL\include\begin_code.h = SDL\include\begin_code.h
+		Game\Images\road\CambioBigEstr.png = Game\Images\road\CambioBigEstr.png
 		SDL\include\close_code.h = SDL\include\close_code.h
+		Game\Images\road\CurvaDerMedEstr.png = Game\Images\road\CurvaDerMedEstr.png
+		Game\Images\road\CurvaIzqMedEstr.png = Game\Images\road\CurvaIzqMedEstr.png
+		Game\Images\road\CurvaMedDerEstr.png = Game\Images\road\CurvaMedDerEstr.png
+		Game\Images\road\CurvaMedIzqEstr.png = Game\Images\road\CurvaMedIzqEstr.png
 		SDL\libx86\libfreetype-6.dll = SDL\libx86\libfreetype-6.dll
 		Game\libfreetype-6.dll = Game\libfreetype-6.dll
 		Game\libmikmod-2.dll = Game\libmikmod-2.dll
@@ -32,6 +37,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Game\mainfont.ttf = Game\mainfont.ttf
 		Game\Images\mainsprites.png = Game\Images\mainsprites.png
 		Game\music.ogg = Game\music.ogg
+		Game\Images\road\RectaDerEstr.png = Game\Images\road\RectaDerEstr.png
+		Game\Images\road\RectaIzqEstr.png = Game\Images\road\RectaIzqEstr.png
+		Game\Images\road\RectaMedBig.png = Game\Images\road\RectaMedBig.png
+		Game\Images\road\RectaMedEstr.png = Game\Images\road\RectaMedEstr.png
 		SDL\include\SDL.h = SDL\include\SDL.h
 		Game\SDL2.dll = Game\SDL2.dll
 		SDL\libx86\SDL2.lib = SDL\libx86\SDL2.lib
@@ -110,7 +119,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SDL\include\SDL_video.h = SDL\include\SDL_video.h
 		Game\smpeg2.dll = Game\smpeg2.dll
 		SDL\libx86\smpeg2.dll = SDL\libx86\smpeg2.dll
-		Game\sprites.png = Game\sprites.png
 		Game\Images\UI.png = Game\Images\UI.png
 		Game\Images\UI.psd = Game\Images\UI.psd
 		Game\zlib1.dll = Game\zlib1.dll

@@ -26,12 +26,22 @@ enum item_type
 	sector
 };
 
+enum controls
+{
+	Cnoone,
+	Crigth,
+	Cleft,
+	Cup,
+	Cdown
 
+};
 
 // Configuration -----------
-#define DEBUG_ALPHA 80
+#define DEBUG_ALPHA 150
 #define SCREEN_WIDTH 880
 #define SCREEN_HEIGHT 750
+#define ROAD_X 200
+#define ROAD_Y 13
 #define FULLSCREEN false
 #define BORDERLESS false
 #define RESIZABLE false

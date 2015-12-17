@@ -64,6 +64,9 @@
     <ClInclude Include="Collider.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>GO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

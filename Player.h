@@ -14,11 +14,18 @@ public:
 	~Player();
 
 	Collider* col = NULL;
+	float xvel = 0.0f;
 	SDL_Rect TextureRect;
 	SDL_Rect Rect;
 	SDL_Texture* MainTex = NULL;
-	
+	bool derecha = false;
+	bool izquierda = false;
 	void SetPlayer(Collider* collider, SDL_Rect cuadro, SDL_Rect cuadrotex, SDL_Texture* Tex);
-	bool RenderGameObj();
+	void RenderGameObj();
+	void Update();
+	void OnCollision(GameObject* ColWith);
+
+
+
 };
 

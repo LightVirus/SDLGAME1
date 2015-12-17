@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "ModuleScene.h"
+#include "Player.h"
 #include "SDL/include/SDL.h"
 
 ModuleInput::ModuleInput()
@@ -28,7 +29,7 @@ bool ModuleInput::Init()
 }
 
 // Called every draw update
-update_status ModuleInput::Update()
+update_status ModuleInput::PreUpdate()
 {
 	SDL_PumpEvents();
 	SDL_Event event;
@@ -36,21 +37,39 @@ update_status ModuleInput::Update()
 
 	while (SDL_PollEvent(&event))
 	{
+		if(event.type == SDL_QUIT)
+			return UPDATE_STOP;
+
+		switch (event.key.keysym.sym)
+		{
+		case SDLK_d:
+			if (event.key.state = (SDL_PRESSED))
+				App->scene->ControlToPlayer(Crigth, true);
+			else if (event.key.state = (SDL_RELEASED))
+				App->scene->ControlToPlayer(Crigth, false);
+			break;
+		case SDLK_a:
+			if (event.key.state = (SDL_PRESSED))
+				App->scene->ControlToPlayer(Cleft, true);
+			else if (event.key.state = (SDL_RELEASED))
+				App->scene->ControlToPlayer(Cleft, false);
+			break;
+		default:
+			break;
+		}
+		
 		if (event.type == SDL_QUIT)
 		{
 			return UPDATE_STOP;
 		}
 	}
-	// TODO 1: Make the application properly close when ESC is pressed (do not use exit())
+	
 	if (keyboard[SDL_SCANCODE_ESCAPE])
 	{
 		return UPDATE_STOP;
 	}
-	if (keyboard[SDL_SCANCODE_SPACE])
-	{
-		App->scene->GoSound();
-	}
-	// Homework: Make the application close up when pressing “X” button of the window
+	
+	
 
 	return UPDATE_CONTINUE;
 }

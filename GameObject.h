@@ -16,6 +16,7 @@ public:
 	GameObject* parent = NULL;
 	item_type type;
 	float xoffset;
+	float yoffset;
 	bool deleteme = false;
 
 
@@ -24,17 +25,18 @@ public:
 
 	}
 
-	void SetGameObj(float x, float y, float offset, bool vis, item_type item, bool del)
+	void SetGameObj(float x, float y, float offsetx, float offsety, bool vis, item_type item, bool del)
 	{
 		posx = x;
 		posy = y;
 		visible = vis;
 		type = item;
 		deleteme = del;
-		xoffset = offset;
+		xoffset = offsetx;
+		yoffset = offsety;
 	}
 
-	void SetGameObj(float x, float y, float offset, bool vis, item_type item, bool del, GameObject* dad)
+	void SetGameObj(float x, float y, float offsetx, float offsety, bool vis, item_type item, bool del, GameObject* dad)
 	{
 		posx = x;
 		posy = y;
@@ -42,21 +44,18 @@ public:
 		type = item;
 		deleteme = del;
 		parent = dad;
-		xoffset = offset;
+		xoffset = offsetx;
 	}
 
 
-	virtual bool Update()
+	virtual void Update()
 	{
-		return true;
 	}
-	virtual bool LateUpdate()
+	virtual void LateUpdate()
 	{
-		return true;
 	}
-	virtual bool RenderGameObj()
+	virtual void RenderGameObj()
 	{
-		return true;
 	}
 
 

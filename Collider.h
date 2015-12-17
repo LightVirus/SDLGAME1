@@ -8,6 +8,7 @@ public:
 	~Collider(){}
 	
 	GameObject *parent;
+	SDL_Rect localrect;
 	SDL_Rect rect;
 	SDL_Color color;
 	bool deleteme;
