@@ -2,10 +2,12 @@
 #include "Module.h"
 #include "Application.h"
 #include "GameObject.h"
+#include "Player.h"
 #include "SDL/include/SDL_mixer.h"
 #include "SDL/include/SDL_image.h"
 #include "SDL/include/SDL_ttf.h"
-#include <vld.h>
+#include <list>
+
 class Application;
 
 class ModuleScene : public Module
@@ -22,6 +24,7 @@ private:
 	
 	//Textures
 	SDL_Texture* mainsprites = NULL;
+	SDL_Texture* mainui = NULL;
 	TTF_Font* MainFont = NULL;
 
 	//Music
@@ -30,6 +33,10 @@ private:
 	//Sounds
 	Mix_Chunk* effect1 = NULL;
 	Mix_Chunk* effect2 = NULL;
+
+	//GameObjects
+
+	Player MainPlayer;
 
 	float x = 0.0f;
 	float y = 0.0f;

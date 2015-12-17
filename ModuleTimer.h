@@ -2,7 +2,7 @@
 #include "Module.h"
 #include "SDL/include/SDL.h"
 #include "Timer.h"
-#include <vld.h>
+
 #include <list>
 class ModuleTimer :
 	public Module

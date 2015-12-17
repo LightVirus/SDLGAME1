@@ -7,7 +7,7 @@
 #pragma comment( lib, "SDL/libx86/SDL2_ttf.lib" )
 #include "SDL/include/SDL_image.h"
 #pragma comment( lib, "SDL/libx86/SDL2_image.lib" )
-#include <vld.h>
+
 using namespace std;
 
 ModuleTextures::ModuleTextures()

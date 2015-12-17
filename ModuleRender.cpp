@@ -3,7 +3,7 @@
 #include "ModuleRender.h"
 #include "ModuleWindow.h"
 #include "SDL/include/SDL.h"
-#include <vld.h>
+
 
 ModuleRender::ModuleRender()
 {
@@ -95,5 +95,7 @@ bool ModuleRender::Blit(SDL_Texture* texture, float x, float y, SDL_Rect* sectio
 void ModuleRender::BlitCollider(SDL_Color color, SDL_Rect rect)
 {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-	SDL_RenderDrawRect(renderer, &rect);
+	SDL_RenderFillRect(renderer, &rect);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	
 }

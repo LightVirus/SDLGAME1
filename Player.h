@@ -17,7 +17,7 @@ public:
 	SDL_Rect TextureRect;
 	SDL_Rect Rect;
 	SDL_Texture* MainTex = NULL;
-
+	
 	void SetPlayer(Collider* collider, SDL_Rect cuadro, SDL_Rect cuadrotex, SDL_Texture* Tex);
 	bool RenderGameObj();
 };

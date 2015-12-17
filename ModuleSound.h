@@ -4,7 +4,7 @@
 #include "Module.h"
 #include "Application.h"
 #include "SDL/include/SDL_mixer.h"
-#include <vld.h>
+
 class Application;
 
 class ModuleSound : public Module

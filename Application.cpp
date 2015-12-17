@@ -8,7 +8,7 @@
 #include "ModuleSound.h"
 #include "ModuleTimer.h"
 #include "ModuleCollider.h"
-#include <vld.h>
+
 
 using namespace std;
 

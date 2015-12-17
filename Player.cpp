@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Application.h"
 #include "ModuleRender.h"
+#include <sstream>
 
 
 
@@ -20,12 +21,12 @@ void Player::SetPlayer(Collider* collider, SDL_Rect cuadro, SDL_Rect cuadrotex, 
 	TextureRect = cuadrotex;
 	MainTex = Tex;
 }
+
 bool Player::RenderGameObj()
 {
-	int posxreal = posx + (TextureRect.x / 2);
 	if (MainTex != NULL)
 	{
-		App->renderer->Blit(MainTex, posxreal, posy, &TextureRect);
+		App->renderer->Blit(MainTex, posx - xoffset, posy, &TextureRect);
 	}
 	return true;
 	

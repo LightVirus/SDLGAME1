@@ -2,7 +2,7 @@
 #include "SDL/include/SDL.h"
 #include "Timer.h"
 #include <string>
-#include <vld.h>
+
 using namespace std;
 
 ModuleTimer::ModuleTimer()

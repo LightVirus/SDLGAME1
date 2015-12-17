@@ -153,7 +153,7 @@ void ModuleCollider::UpdateCol()
 {
 	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
 	{
-		itA->rect.x = itA->parent->posx;
+		itA->rect.x = itA->parent->posx - (itA->rect.w / 2);
 		itA->rect.y = itA->parent->posy;
 	}
 }
@@ -162,7 +162,7 @@ bool ModuleCollider::CleanUp()
 {
 	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
 	{
-		delete &itA;
+		itA->~Collider();
 	}
 	Colliders.clear();
 	return true;

@@ -1,7 +1,7 @@
 #pragma once
 #include <windows.h>
 #include <stdio.h>
-#include <vld.h>
+
 //#include "GameObject.h"
 #include "SDL/include/SDL.h"
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
@@ -29,7 +29,7 @@ enum item_type
 
 
 // Configuration -----------
-#define DEBUG_ALPHA 180
+#define DEBUG_ALPHA 80
 #define SCREEN_WIDTH 880
 #define SCREEN_HEIGHT 750
 #define FULLSCREEN false

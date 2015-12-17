@@ -4,7 +4,7 @@
 #include "GameObject.h"
 #include "SDL/include/SDL.h"
 #include "Collider.h"
-#include <vld.h>
+
 #include <list>
 class ModuleCollider :
 	public Module
