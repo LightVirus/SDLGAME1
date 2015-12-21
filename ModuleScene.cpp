@@ -11,6 +11,7 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "Road.h"
+#include "Sector.h"
 #include <string>
 #include <sstream>
 #include <list>
@@ -46,10 +47,19 @@ bool ModuleScene::Start()
 	App->sound->PlayMusic(music1);
 	
 	//Set Roads
-	RectMedBig.SetGameObj(ROAD_X, ROAD_Y, 240, 0, true, road, false); //Cambiar a cordenadas 0,0
-	RectMedBig.texture = RectaMedBigTEX;
+	RectMedBig.SetGameObj(0, 0, 0, 0, true, road, false);
+	RectMedBig.SetSize(RectaMedBigTEX);
 	RectMedBig.AddRectToRoad(0, 0, 83, 515);
 	RectMedBig.AddRectToRoad(397, 0, 83, 515);
+
+	//Set Sectors
+	SECTRectBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTRectBig.AddRoadToSector(RectMedBig);
+	SECTRectBig.AddRoadToSector(RectMedBig);
+	SECTRectBig.AddRoadToSector(RectMedBig);
+	SECTRectBig.AddRoadToSector(RectMedBig);
+
+	
 	
 	
 	//Create GameObjects
@@ -80,7 +90,7 @@ update_status ModuleScene::Update()
 		App->collider->CheckAllCol();
 	
 	//Road
-	RectMedBig.Update();
+	SECTRectBig.Update();
 	
 	
 	// Player
@@ -97,7 +107,7 @@ update_status ModuleScene::Update()
 	App->collider->RenderCol();
 
 	//UI
-	App->renderer->Blit(mainui, 0, 0, NULL);
+	//App->renderer->Blit(mainui, 0, 0, NULL);
 
 	// FPS
 	stringstream timeText;
@@ -119,7 +129,7 @@ void const ModuleScene::GoSound()
 	App->sound->PlaySoundE(effect1);
 }
 
-void ModuleScene::ControlToPlayer(controls cont, bool state)
+/*void ModuleScene::ControlToPlayer(controls cont, bool state)
 {
 	switch (cont)
 	{
@@ -138,4 +148,4 @@ void ModuleScene::ControlToPlayer(controls cont, bool state)
 	}
 		
 	}
-}
+}*/

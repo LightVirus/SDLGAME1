@@ -86,6 +86,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Road.h" />
+    <ClInclude Include="Sector.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>

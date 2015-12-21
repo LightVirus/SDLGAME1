@@ -1,7 +1,7 @@
 #pragma once
 #include "Animation.h"
 #include "Globals.h"
-
+#include "Point.h"
 #include <vector>
 
 class GameObject
@@ -10,8 +10,7 @@ public:
 	GameObject() {}
 	//~GameObject() {}
 
-	float posx = 0;
-	float posy = 0;
+	fPoint posp;
 	bool visible = false;
 	GameObject* parent = NULL;
 	item_type type;
@@ -27,8 +26,8 @@ public:
 
 	void SetGameObj(float x, float y, float offsetx, float offsety, bool vis, item_type item, bool del)
 	{
-		posx = x;
-		posy = y;
+		posp.x = x;
+		posp.y = y;
 		visible = vis;
 		type = item;
 		deleteme = del;
@@ -38,8 +37,8 @@ public:
 
 	void SetGameObj(float x, float y, float offsetx, float offsety, bool vis, item_type item, bool del, GameObject* dad)
 	{
-		posx = x;
-		posy = y;
+		posp.x = x;
+		posp.y = y;
 		visible = vis;
 		type = item;
 		deleteme = del;

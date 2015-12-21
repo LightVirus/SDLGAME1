@@ -4,6 +4,7 @@
 #include "ModuleCollider.h"
 #include "GameObject.h"
 #include "Collider.h"
+#include "Point.h"
 #include <list>
 #include "SDL/include/SDL.h"
 
@@ -19,6 +20,14 @@ public:
 	SDL_Texture* texture = NULL;
 	list<SDL_Rect> cuadrados;
 	list<Collider*> colliders;
+	int ysize;
+
+	void SetSize(SDL_Texture* text)
+	{
+		texture = text;
+		SDL_QueryTexture(texture, NULL, NULL, NULL, &ysize);
+	}
+		
 	
 	void AddRectToRoad(SDL_Rect rect)
 	{
@@ -53,8 +62,8 @@ public:
 		//Update Colliders
 		for (list<Collider*>::iterator itA = colliders.begin(); itA != colliders.end(); ++itA)
 		{
-				(*itA)->rect.x = posx + (*itA)->localrect.x;
-				(*itA)->rect.y = posy + (*itA)->localrect.y;
+			(*itA)->rect.x = posp.x + (*itA)->localrect.x;
+			(*itA)->rect.y = posp.y + (*itA)->localrect.y;
 		}
 	}
 

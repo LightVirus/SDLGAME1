@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "Road.h"
+#include "Sector.h"
 #include "SDL/include/SDL_mixer.h"
 #include "SDL/include/SDL_image.h"
 #include "SDL/include/SDL_ttf.h"
@@ -20,7 +21,9 @@ public:
 	bool Start();
 	update_status Update();
 	void const GoSound();
-	void ControlToPlayer(controls cont, bool state);
+	//void ControlToPlayer(controls cont, bool state);
+
+	Player* MainPlayer;
 private:
 	
 	//Textures
@@ -38,10 +41,13 @@ private:
 
 	//Road
 	Road RectMedBig;
+
+	//Sector
+	Sector SECTRectBig;
 	
 	//GameObjects
 	list<GameObject*> GOList;
-	Player* MainPlayer;
+	
 
 
 	float x = 0.0f;

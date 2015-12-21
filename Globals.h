@@ -52,7 +52,7 @@ enum item_type
 	sector
 };
 
-enum controls
+/*enum controls
 {
 	Cnoone,
 	Crigth,
@@ -60,9 +60,10 @@ enum controls
 	Cup,
 	Cdown
 
-};
+};*/
 
 // Configuration -----------
+#define SECTOR_END 2000
 #define DEBUG_ALPHA 150
 #define SCREEN_WIDTH 880
 #define SCREEN_HEIGHT 750

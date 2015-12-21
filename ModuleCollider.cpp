@@ -176,8 +176,8 @@ void ModuleCollider::UpdateCol()
 {
 	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
 	{
-		(*itA)->rect.x = (*itA)->parent->posx - ((*itA)->rect.w / 2);
-		(*itA)->rect.y = (*itA)->parent->posy;
+		(*itA)->rect.x = (*itA)->parent->posp.x - ((*itA)->rect.w / 2);
+		(*itA)->rect.y = (*itA)->parent->posp.y;
 	}
 }
 

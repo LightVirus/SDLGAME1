@@ -84,12 +84,17 @@ public:
 		return(*this);
 	}
 
-	/*Point& NextPoint(const Point& float speed)
+	Point& NextPoint(const Point& dest, float speed)
 	{
-		
+		x = x + speed;
+		y = y + speed;
+		if (x > dest.x)
+			x = dest.x;
+		if (y > dest.y)
+			y = dest.y;
 
 		return(*this);
-	}*/
+	}
 
 	// Distances ---------------------------------------------
 	TYPE DistanceTo(const Point& v) const

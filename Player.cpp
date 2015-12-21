@@ -49,11 +49,11 @@ void Player::Update()
 		xvel = 0;
 	}
 	
-	posx = posx + (xvel * App->timer->deltatime);
+	posp.x = posp.x + (xvel * App->timer->deltatime);
 	
 	//Collider
-	col->rect.x = col->parent->posx - (col->rect.w / 2);
-	col->rect.y = col->parent->posy;
+	col->rect.x = col->parent->posp.x - (col->rect.w / 2);
+	col->rect.y = col->parent->posp.y;
 }
 
 void Player::OnCollisionEnter(GameObject * ColWith)
@@ -65,6 +65,6 @@ void Player::RenderGameObj()
 {
 	if (MainTex != NULL)
 	{
-		App->renderer->Blit(MainTex, posx + xoffset, posy, &TextureRect);
+		App->renderer->Blit(MainTex, posp.x + xoffset, posp.y, &TextureRect);
 	}
 }
