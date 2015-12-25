@@ -11,6 +11,7 @@ public:
 	//~GameObject() {}
 
 	fPoint posp;
+	fPoint localpos;
 	bool visible = false;
 	GameObject* parent = NULL;
 	item_type type;
@@ -28,6 +29,8 @@ public:
 	{
 		posp.x = x;
 		posp.y = y;
+		localpos.x = x;
+		localpos.y = y;
 		visible = vis;
 		type = item;
 		deleteme = del;
@@ -39,6 +42,8 @@ public:
 	{
 		posp.x = x;
 		posp.y = y;
+		localpos.x = x;
+		localpos.y = y;
 		visible = vis;
 		type = item;
 		deleteme = del;

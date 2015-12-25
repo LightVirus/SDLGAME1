@@ -47,7 +47,7 @@ bool ModuleScene::Start()
 	App->sound->PlayMusic(music1);
 	
 	//Set Roads
-	RectMedBig.SetGameObj(0, 0, 0, 0, true, road, false);
+	RectMedBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
 	RectMedBig.SetSize(RectaMedBigTEX);
 	RectMedBig.AddRectToRoad(0, 0, 83, 515);
 	RectMedBig.AddRectToRoad(397, 0, 83, 515);
@@ -58,7 +58,10 @@ bool ModuleScene::Start()
 	SECTRectBig.AddRoadToSector(RectMedBig);
 	SECTRectBig.AddRoadToSector(RectMedBig);
 	SECTRectBig.AddRoadToSector(RectMedBig);
-
+	SECTRectBig.AddRoadToSector(RectMedBig);
+	SECTRectBig.AddRoadToSector(RectMedBig);
+	SECTRectBig.AddRoadToSector(RectMedBig);
+	SECTRectBig.AddRoadToSector(RectMedBig);
 	
 	
 	
@@ -71,7 +74,7 @@ bool ModuleScene::Start()
 
 
 	//DEBUG
-	RectMedBig.CreateColForRoad();
+	//SECTRectBig.CreateColOnSector();
 	
 	
 	
@@ -86,11 +89,27 @@ bool ModuleScene::Start()
 
 update_status ModuleScene::Update()
 {
-	if(!fristtime)
+	if (fristtime)
+	{
+		SectorsList.push_back(SECTRectBig);
+		SectorsList.back().SetParent();
+
+		for (list<Sector>::iterator itA = SectorsList.begin(); itA != SectorsList.end(); ++itA)
+		{
+			itA->CreateColOnSector();
+		}
+	}
+	else
+	{
 		App->collider->CheckAllCol();
+	}
+		
 	
 	//Road
-	SECTRectBig.Update();
+	for (list<Sector>::iterator itA = SectorsList.begin(); itA != SectorsList.end(); ++itA)
+	{
+		itA->RoadUpdate(roadvel);
+	}
 	
 	
 	// Player
@@ -100,11 +119,15 @@ update_status ModuleScene::Update()
 	
 	
 	//RenderGO
-	App->renderer->Blit(RectaMedBigTEX, ROAD_X, ROAD_Y, NULL);
+	for (list<Sector>::iterator itA = SectorsList.begin(); itA != SectorsList.end(); ++itA)
+	{
+		itA->RenderGameObj();
+	}
 	MainPlayer->RenderGameObj();
 	
 	// Colliders
-	App->collider->RenderCol();
+	if(MainPlayer->RenderCol)
+		App->collider->RenderCol();
 
 	//UI
 	//App->renderer->Blit(mainui, 0, 0, NULL);

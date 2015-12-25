@@ -13,7 +13,6 @@ public:
 	Sector(){}
 	~Sector(){}
 
-	float posy = 0.0f;
 	std::list<Road> roads;
 	bool deleteme = false;
 
@@ -22,9 +21,16 @@ public:
 		int final = SectorEnd();
 		roads.push_back(road);
 		Road* roadp = &roads.back();
-		roadp->posp.y = final;
+		roadp->posp.y = final - roadp->ysize;
+		roadp->localpos.y = final - roadp->ysize;
 	}
-	
+	void CreateColOnSector()
+	{
+		for (list<Road>::iterator it = roads.begin(); it != roads.end(); ++it)
+		{
+			it->CreateColForRoad();
+		}
+	}
 	int SectorEnd()
 	{
 		int suma = 0;
@@ -35,19 +41,27 @@ public:
 		return suma;
 	}
 
-	void Update()
+	void RoadUpdate(float vel)
 	{
-		posy = posy + (App->scene->MainPlayer->roadvel * App->timer->deltatime);
-		if ((posy - SectorEnd()) > SECTOR_END)
+		float offset = vel * App->timer->deltatime;
+		posp.y = posp.y + offset;
+		/*if ((posy - SectorEnd()) > SECTOR_END)
 		{
 			deleteme = true;
-		}
+		}*/
+		
 		for (list<Road>::iterator it = roads.begin(); it != roads.end(); ++it)
 		{
 			it->Update();
 		}
 	}
-
+	void SetParent()
+	{
+		for (list<Road>::iterator it = roads.begin(); it != roads.end(); ++it)
+		{
+			it->parent = this;
+		}
+	}
 	void RenderGameObj()
 	{
 		for (list<Road>::iterator it = roads.begin(); it != roads.end(); ++it)

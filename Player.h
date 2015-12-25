@@ -20,7 +20,7 @@ public:
 	SDL_Texture* MainTex = NULL;
 	bool derecha = false;
 	bool izquierda = false;
-	float roadvel = 0.0;
+	bool RenderCol = false;
 	void SetPlayer(Collider* collider, SDL_Rect cuadro, SDL_Rect cuadrotex, SDL_Texture* Tex);
 	void RenderGameObj();
 	void Update();

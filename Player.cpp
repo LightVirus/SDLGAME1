@@ -43,6 +43,10 @@ void Player::Update()
 		if (xvel > 10000)
 			xvel = 10000;
 	}
+	else if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN)
+	{
+		RenderCol = !RenderCol;
+	}
 	
 	else
 	{

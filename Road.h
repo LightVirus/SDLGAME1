@@ -59,6 +59,12 @@ public:
 
 	void Update()
 	{
+		if (parent != NULL)
+		{
+			posp.y = parent->posp.y - localpos.y;
+		}
+		
+		
 		//Update Colliders
 		for (list<Collider*>::iterator itA = colliders.begin(); itA != colliders.end(); ++itA)
 		{

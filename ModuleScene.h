@@ -21,10 +21,12 @@ public:
 	bool Start();
 	update_status Update();
 	void const GoSound();
+	float roadvel = 100.0f;
 	//void ControlToPlayer(controls cont, bool state);
 
 	Player* MainPlayer;
 private:
+	list<Sector> SectorsList;
 	
 	//Textures
 	SDL_Texture* mainsprites = NULL;
