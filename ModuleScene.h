@@ -19,6 +19,7 @@ public:
 	~ModuleScene();
 	bool fristtime;
 	bool Start();
+	bool CleanUp();
 	update_status Update();
 	void const GoSound();
 	float roadvel = 100.0f;

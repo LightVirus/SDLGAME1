@@ -62,6 +62,8 @@ bool ModuleScene::Start()
 	SECTRectBig.AddRoadToSector(RectMedBig);
 	SECTRectBig.AddRoadToSector(RectMedBig);
 	SECTRectBig.AddRoadToSector(RectMedBig);
+	SECTRectBig.AddRoadToSector(RectMedBig);
+	SECTRectBig.AddRoadToSector(RectMedBig);
 	
 	
 	
@@ -84,6 +86,25 @@ bool ModuleScene::Start()
 	return true;
 
 	// 5 9  30 47
+}
+
+bool ModuleScene::CleanUp()
+{
+	
+
+
+
+	for (list<GameObject*>::iterator itA = GOList.begin(); itA != GOList.end(); ++itA)
+	{
+		RELEASE(*itA);
+	}
+	GOList.clear();
+	for (list<Sector>::iterator itA = SectorsList.begin(); itA != SectorsList.end();)
+	{
+		itA = SectorsList.erase(itA);
+	}
+	SectorsList.clear();
+	return true;
 }
 
 
