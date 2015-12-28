@@ -39,19 +39,22 @@ bool ModuleScene::Start()
 	//Load Resources
 	mainsprites = App->textures->Load("Game/Images/mainsprites.png");
 	mainui = App->textures->Load("Game/Images/UI.png");
+	
+	
 	RectaMedBigTEX = App->textures->Load("Game/Images/road/RectaMedBig.png");
 	CambioBigEstrTEX = App->textures->Load("Game/Images/road/CambioBigEstr.png");
-
+	RectaMedEstrTEX = App->textures->Load("Game/Images/road/RectaMedEstr.png");
+	
 	music1 = App->sound->LoadMusic("Game/music.ogg");
 	MainFont = App->textures->LoadFont("Game/mainfont.ttf", 24);
 	Mix_VolumeMusic(50);
 	App->sound->PlayMusic(music1);
 	
 	//Set Roads
-	RectMedBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
-	RectMedBig.SetSize(RectaMedBigTEX);
-	RectMedBig.AddRectToRoad(0, 0, 83, 515);
-	RectMedBig.AddRectToRoad(397, 0, 83, 515);
+	RectaMedBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	RectaMedBig.SetSize(RectaMedBigTEX);
+	RectaMedBig.AddRectToRoad(0, 0, 83, 515);
+	RectaMedBig.AddRectToRoad(397, 0, 83, 515);
 
 	CambioBigEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
 	CambioBigEstr.SetSize(CambioBigEstrTEX);
@@ -78,23 +81,35 @@ bool ModuleScene::Start()
 	CambioBigEstr.AddRectToRoad(0,920,99,60);
 	CambioBigEstr.AddRectToRoad(381,920,99,60);
 
+	RectaMedEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	RectaMedEstr.SetSize(RectaMedEstrTEX);
+	RectaMedEstr.AddRectToRoad(0, 0, 152, 515);
+	RectaMedEstr.AddRectToRoad(328, 0, 152, 515);
 
 	//Set Sectors
-	SECTRectBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
-	SECTRectBig.AddRoadToSector(RectMedBig);
-	SECTRectBig.AddRoadToSector(RectMedBig);
-	SECTRectBig.AddRoadToSector(RectMedBig);
-	SECTRectBig.AddRoadToSector(RectMedBig);
-	SECTRectBig.AddRoadToSector(RectMedBig);
-	SECTRectBig.AddRoadToSector(RectMedBig);
-	SECTRectBig.AddRoadToSector(RectMedBig);
-	SECTRectBig.AddRoadToSector(RectMedBig);
-	SECTRectBig.AddRoadToSector(RectMedBig);
-	SECTRectBig.AddRoadToSector(RectMedBig);
+	SECTRectaBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
+	SECTRectaBig.AddRoadToSector(RectaMedBig);
 	
 	SECTCambioBigEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
-	SECTCambioBigEstr.AddRoadToSector(RectMedBig);
+	SECTCambioBigEstr.AddRoadToSector(RectaMedBig);
+	SECTCambioBigEstr.AddRoadToSector(RectaMedBig);
+	SECTCambioBigEstr.AddRoadToSector(RectaMedBig);
+	SECTCambioBigEstr.AddRoadToSector(RectaMedBig);
 	SECTCambioBigEstr.AddRoadToSector(CambioBigEstr);
+	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
+	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
+	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
+	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
+	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
 	
 	//Create GameObjects
 	GOList.push_back(MainPlayer = new Player());
@@ -114,7 +129,7 @@ bool ModuleScene::Start()
 	SDL_SetRenderDrawBlendMode(App->renderer->renderer, SDL_BLENDMODE_BLEND);
 	return true;
 
-	// 5 9  30 47
+
 }
 
 bool ModuleScene::CleanUp()
@@ -177,7 +192,7 @@ update_status ModuleScene::Update()
 		App->collider->RenderCol();
 
 	//UI
-	//App->renderer->Blit(mainui, 0, 0, NULL);
+	App->renderer->Blit(mainui, 0, 0, NULL);
 
 	// FPS
 	stringstream timeText;

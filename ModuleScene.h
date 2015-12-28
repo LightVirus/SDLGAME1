@@ -32,6 +32,7 @@ private:
 	//Textures
 	SDL_Texture* mainsprites = NULL;
 	SDL_Texture* RectaMedBigTEX = NULL;
+	SDL_Texture* RectaMedEstrTEX = NULL;
 	SDL_Texture* CambioBigEstrTEX = NULL;
 	SDL_Texture* mainui = NULL;
 	TTF_Font* MainFont = NULL;
@@ -44,10 +45,11 @@ private:
 	Mix_Chunk* effect2 = NULL;
 
 	//Road
-	Road RectMedBig;
+	Road RectaMedBig;
+	Road RectaMedEstr;
 	Road CambioBigEstr;
 	//Sector
-	Sector SECTRectBig;
+	Sector SECTRectaBig;
 	Sector SECTCambioBigEstr;
 	
 	//GameObjects
