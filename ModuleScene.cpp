@@ -40,6 +40,7 @@ bool ModuleScene::Start()
 	mainsprites = App->textures->Load("Game/Images/mainsprites.png");
 	mainui = App->textures->Load("Game/Images/UI.png");
 	RectaMedBigTEX = App->textures->Load("Game/Images/road/RectaMedBig.png");
+	CambioBigEstrTEX = App->textures->Load("Game/Images/road/CambioBigEstr.png");
 
 	music1 = App->sound->LoadMusic("Game/music.ogg");
 	MainFont = App->textures->LoadFont("Game/mainfont.ttf", 24);
@@ -51,6 +52,32 @@ bool ModuleScene::Start()
 	RectMedBig.SetSize(RectaMedBigTEX);
 	RectMedBig.AddRectToRoad(0, 0, 83, 515);
 	RectMedBig.AddRectToRoad(397, 0, 83, 515);
+
+	CambioBigEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	CambioBigEstr.SetSize(CambioBigEstrTEX);
+	CambioBigEstr.AddRectToRoad(0,0,155,138);
+	CambioBigEstr.AddRectToRoad(325,0,155,138);
+	CambioBigEstr.AddRectToRoad(0,138,149,64);
+	CambioBigEstr.AddRectToRoad(331,138,149,64);
+	CambioBigEstr.AddRectToRoad(0,202,145,64);
+	CambioBigEstr.AddRectToRoad(335,202,145,64);
+	CambioBigEstr.AddRectToRoad(0, 266, 141, 64);
+	CambioBigEstr.AddRectToRoad(339,266,141,64);
+	CambioBigEstr.AddRectToRoad(0,330,137,64);
+	CambioBigEstr.AddRectToRoad(343,330,137,64);
+	CambioBigEstr.AddRectToRoad(0,394,131,64);
+	CambioBigEstr.AddRectToRoad(349,394,131,64);
+	CambioBigEstr.AddRectToRoad(0,458,123,206);
+	CambioBigEstr.AddRectToRoad(357,458,123,206);
+	CambioBigEstr.AddRectToRoad(0,664,116,126);
+	CambioBigEstr.AddRectToRoad(364,664,116,126);
+	CambioBigEstr.AddRectToRoad(0,790,110,66);
+	CambioBigEstr.AddRectToRoad(370, 790, 110, 66);
+	CambioBigEstr.AddRectToRoad(0,856,106,66);
+	CambioBigEstr.AddRectToRoad(374,856,106,66);
+	CambioBigEstr.AddRectToRoad(0,920,99,60);
+	CambioBigEstr.AddRectToRoad(381,920,99,60);
+
 
 	//Set Sectors
 	SECTRectBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
@@ -65,7 +92,9 @@ bool ModuleScene::Start()
 	SECTRectBig.AddRoadToSector(RectMedBig);
 	SECTRectBig.AddRoadToSector(RectMedBig);
 	
-	
+	SECTCambioBigEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTCambioBigEstr.AddRoadToSector(RectMedBig);
+	SECTCambioBigEstr.AddRoadToSector(CambioBigEstr);
 	
 	//Create GameObjects
 	GOList.push_back(MainPlayer = new Player());
@@ -108,8 +137,9 @@ update_status ModuleScene::Update()
 {
 	if (fristtime)
 	{
-		SectorsList.push_back(SECTRectBig);
+		SectorsList.push_back(SECTCambioBigEstr);
 		SectorsList.back().SetParent();
+		SectorsList.back().posp.y = SCREEN_HEIGHT;
 
 		for (list<Sector>::iterator itA = SectorsList.begin(); itA != SectorsList.end(); ++itA)
 		{

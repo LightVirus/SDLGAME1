@@ -21,8 +21,8 @@ public:
 		int final = SectorEnd();
 		roads.push_back(road);
 		Road* roadp = &roads.back();
-		roadp->posp.y = final - roadp->ysize;
-		roadp->localpos.y = final - roadp->ysize;
+		roadp->posp.y = final + roadp->ysize;
+		roadp->localpos.y = final + roadp->ysize;
 	}
 	void CreateColOnSector()
 	{

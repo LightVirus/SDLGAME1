@@ -32,6 +32,7 @@ private:
 	//Textures
 	SDL_Texture* mainsprites = NULL;
 	SDL_Texture* RectaMedBigTEX = NULL;
+	SDL_Texture* CambioBigEstrTEX = NULL;
 	SDL_Texture* mainui = NULL;
 	TTF_Font* MainFont = NULL;
 
@@ -44,9 +45,10 @@ private:
 
 	//Road
 	Road RectMedBig;
-
+	Road CambioBigEstr;
 	//Sector
 	Sector SECTRectBig;
+	Sector SECTCambioBigEstr;
 	
 	//GameObjects
 	list<GameObject*> GOList;
