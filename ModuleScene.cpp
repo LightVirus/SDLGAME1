@@ -90,10 +90,6 @@ bool ModuleScene::Start()
 
 bool ModuleScene::CleanUp()
 {
-	
-
-
-
 	for (list<GameObject*>::iterator itA = GOList.begin(); itA != GOList.end(); ++itA)
 	{
 		RELEASE(*itA);
