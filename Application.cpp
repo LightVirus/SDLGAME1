@@ -41,6 +41,7 @@ Application::~Application()
 	delete scene;
 	delete sound;
 	delete timer;
+	delete collider;
 }
 
 bool Application::Init()

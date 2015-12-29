@@ -34,6 +34,10 @@ private:
 	SDL_Texture* RectaMedBigTEX = NULL;
 	SDL_Texture* RectaMedEstrTEX = NULL;
 	SDL_Texture* CambioBigEstrTEX = NULL;
+	SDL_Texture* RectaDerEstrTEX = NULL;
+	SDL_Texture* RectaIzqEstrTEX = NULL;
+	SDL_Texture* CurvaDerMedEstrTEX = NULL;
+	SDL_Texture* CurvaIzqMedEstrTEX = NULL;
 	SDL_Texture* mainui = NULL;
 	TTF_Font* MainFont = NULL;
 
@@ -48,6 +52,11 @@ private:
 	Road RectaMedBig;
 	Road RectaMedEstr;
 	Road CambioBigEstr;
+	Road RectaDerEstr;
+	Road RectaIzqEstr;
+	Road CurvaDerMedEstr;
+	Road CurvaIzqMedEstr;
+
 	//Sector
 	Sector SECTRectaBig;
 	Sector SECTCambioBigEstr;

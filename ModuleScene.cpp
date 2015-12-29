@@ -44,6 +44,10 @@ bool ModuleScene::Start()
 	RectaMedBigTEX = App->textures->Load("Game/Images/road/RectaMedBig.png");
 	CambioBigEstrTEX = App->textures->Load("Game/Images/road/CambioBigEstr.png");
 	RectaMedEstrTEX = App->textures->Load("Game/Images/road/RectaMedEstr.png");
+	RectaDerEstrTEX = App->textures->Load("Game/Images/road/RectaDerEstr.png");
+	RectaIzqEstrTEX = App->textures->Load("Game/Images/road/RectaIzqEstr.png");
+	CurvaDerMedEstrTEX = App->textures->Load("Game/Images/road/CurvaDerMedEstr.png");
+	CurvaIzqMedEstrTEX = App->textures->Load("Game/Images/road/CurvaIzqMedEstr.png");
 	
 	music1 = App->sound->LoadMusic("Game/music.ogg");
 	MainFont = App->textures->LoadFont("Game/mainfont.ttf", 24);
@@ -85,6 +89,43 @@ bool ModuleScene::Start()
 	RectaMedEstr.SetSize(RectaMedEstrTEX);
 	RectaMedEstr.AddRectToRoad(0, 0, 152, 515);
 	RectaMedEstr.AddRectToRoad(328, 0, 152, 515);
+
+	RectaDerEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	RectaDerEstr.SetSize(RectaDerEstrTEX);
+	RectaDerEstr.AddRectToRoad(0, 0, 248, 515);
+	RectaDerEstr.AddRectToRoad(424, 0, 56, 515);
+
+	RectaIzqEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	RectaIzqEstr.SetSize(RectaIzqEstrTEX);
+	RectaIzqEstr.AddRectToRoad(0, 0, 55, 515);
+	RectaIzqEstr.AddRectToRoad(232,0,248,515);
+
+	CurvaDerMedEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	CurvaDerMedEstr.SetSize(CurvaDerMedEstrTEX);
+	CurvaDerMedEstr.AddRectToRoad(0, 0, 160, 100);
+	CurvaDerMedEstr.AddRectToRoad(0, 100, 180, 100);
+	CurvaDerMedEstr.AddRectToRoad(0, 200, 200, 100);
+	CurvaDerMedEstr.AddRectToRoad(0, 300, 220, 100);
+	CurvaDerMedEstr.AddRectToRoad(0, 400, 240, 110);
+	CurvaDerMedEstr.AddRectToRoad(330, 0, 150, 100);
+	CurvaDerMedEstr.AddRectToRoad(350, 100, 130, 100);
+	CurvaDerMedEstr.AddRectToRoad(370, 200, 110, 100);
+	CurvaDerMedEstr.AddRectToRoad(390, 300, 90, 100);
+	CurvaDerMedEstr.AddRectToRoad(410, 400, 70, 110);
+
+	CurvaIzqMedEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	CurvaIzqMedEstr.SetSize(CurvaIzqMedEstrTEX);
+	CurvaIzqMedEstr.AddRectToRoad(0, 0, 150, 100);
+	CurvaIzqMedEstr.AddRectToRoad(0, 100, 130, 100);
+	CurvaIzqMedEstr.AddRectToRoad(0, 200, 110, 100);
+	CurvaIzqMedEstr.AddRectToRoad(0, 300, 90, 100);
+	CurvaIzqMedEstr.AddRectToRoad(0, 400, 70, 110);
+	CurvaIzqMedEstr.AddRectToRoad(320, 0, 160, 100);
+	CurvaIzqMedEstr.AddRectToRoad(300, 100, 180, 100);
+	CurvaIzqMedEstr.AddRectToRoad(280, 200, 200, 100);
+	CurvaIzqMedEstr.AddRectToRoad(260, 300, 220, 100);
+	CurvaIzqMedEstr.AddRectToRoad(240, 400, 240, 110);
+
 
 	//Set Sectors
 	SECTRectaBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
