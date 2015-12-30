@@ -48,6 +48,8 @@ bool ModuleScene::Start()
 	RectaIzqEstrTEX = App->textures->Load("Game/Images/road/RectaIzqEstr.png");
 	CurvaDerMedEstrTEX = App->textures->Load("Game/Images/road/CurvaDerMedEstr.png");
 	CurvaIzqMedEstrTEX = App->textures->Load("Game/Images/road/CurvaIzqMedEstr.png");
+	CurvaMedDerEstrTEX = App->textures->Load("Game/Images/road/CurvaMedDerEstr.png");
+	CurvaMedIzqEstrTEX = App->textures->Load("Game/Images/road/CurvaMedIzqEstr.png");
 	
 	music1 = App->sound->LoadMusic("Game/music.ogg");
 	MainFont = App->textures->LoadFont("Game/mainfont.ttf", 24);
@@ -126,6 +128,32 @@ bool ModuleScene::Start()
 	CurvaIzqMedEstr.AddRectToRoad(260, 300, 220, 100);
 	CurvaIzqMedEstr.AddRectToRoad(240, 400, 240, 110);
 
+	CurvaMedDerEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	CurvaMedDerEstr.SetSize(CurvaMedDerEstrTEX);
+	CurvaMedDerEstr.AddRectToRoad(0, 0, 250, 100);
+	CurvaMedDerEstr.AddRectToRoad(0, 100, 230, 100);
+	CurvaMedDerEstr.AddRectToRoad(0, 200, 210, 100);
+	CurvaMedDerEstr.AddRectToRoad(0, 300, 190, 100);
+	CurvaMedDerEstr.AddRectToRoad(0, 400, 170, 110);
+	CurvaMedDerEstr.AddRectToRoad(410, 0, 70, 100);
+	CurvaMedDerEstr.AddRectToRoad(390, 100, 90, 100);
+	CurvaMedDerEstr.AddRectToRoad(370, 200, 110, 100);
+	CurvaMedDerEstr.AddRectToRoad(350, 300, 130, 100);
+	CurvaMedDerEstr.AddRectToRoad(330, 400, 150, 110);
+
+	CurvaMedIzqEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	CurvaMedIzqEstr.SetSize(CurvaMedIzqEstrTEX);
+	CurvaMedIzqEstr.AddRectToRoad(0, 0, 70, 100);
+	CurvaMedIzqEstr.AddRectToRoad(0, 100, 90, 100);
+	CurvaMedIzqEstr.AddRectToRoad(0, 200, 110, 100);
+	CurvaMedIzqEstr.AddRectToRoad(0, 300, 130, 100);
+	CurvaMedIzqEstr.AddRectToRoad(0, 400, 150, 110);
+	CurvaMedIzqEstr.AddRectToRoad(230, 0, 250, 100);
+	CurvaMedIzqEstr.AddRectToRoad(250, 100, 230, 100);
+	CurvaMedIzqEstr.AddRectToRoad(270, 200, 210, 100);
+	CurvaMedIzqEstr.AddRectToRoad(290, 300, 190, 100);
+	CurvaMedIzqEstr.AddRectToRoad(310, 400, 170, 110);
+
 
 	//Set Sectors
 	SECTRectaBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
@@ -152,6 +180,22 @@ bool ModuleScene::Start()
 	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
 	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
 	
+	SECTTEST.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTTEST.AddRoadToSector(RectaMedBig);
+	SECTTEST.AddRoadToSector(RectaMedBig);
+	SECTTEST.AddRoadToSector(CambioBigEstr);
+	SECTTEST.AddRoadToSector(RectaMedEstr);
+	SECTTEST.AddRoadToSector(RectaMedEstr);
+	SECTTEST.AddRoadToSector(CurvaMedDerEstr);
+	SECTTEST.AddRoadToSector(RectaDerEstr);
+	SECTTEST.AddRoadToSector(CurvaDerMedEstr);
+	SECTTEST.AddRoadToSector(RectaMedEstr);
+	SECTTEST.AddRoadToSector(CurvaMedIzqEstr);
+	SECTTEST.AddRoadToSector(RectaIzqEstr);
+	SECTTEST.AddRoadToSector(CurvaIzqMedEstr);
+	SECTTEST.AddRoadToSector(RectaMedEstr);
+
+
 	//Create GameObjects
 	GOList.push_back(MainPlayer = new Player());
 	MainPlayer->SetGameObj(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, -15, 0, true, player, false);
@@ -193,7 +237,7 @@ update_status ModuleScene::Update()
 {
 	if (fristtime)
 	{
-		SectorsList.push_back(SECTCambioBigEstr);
+		SectorsList.push_back(SECTTEST);
 		SectorsList.back().SetParent();
 		SectorsList.back().posp.y = SCREEN_HEIGHT;
 

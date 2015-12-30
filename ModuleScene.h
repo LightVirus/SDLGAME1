@@ -38,6 +38,8 @@ private:
 	SDL_Texture* RectaIzqEstrTEX = NULL;
 	SDL_Texture* CurvaDerMedEstrTEX = NULL;
 	SDL_Texture* CurvaIzqMedEstrTEX = NULL;
+	SDL_Texture* CurvaMedDerEstrTEX = NULL;
+	SDL_Texture* CurvaMedIzqEstrTEX = NULL;
 	SDL_Texture* mainui = NULL;
 	TTF_Font* MainFont = NULL;
 
@@ -56,10 +58,14 @@ private:
 	Road RectaIzqEstr;
 	Road CurvaDerMedEstr;
 	Road CurvaIzqMedEstr;
+	Road CurvaMedDerEstr;
+	Road CurvaMedIzqEstr;
 
 	//Sector
 	Sector SECTRectaBig;
 	Sector SECTCambioBigEstr;
+	
+	Sector SECTTEST;
 	
 	//GameObjects
 	list<GameObject*> GOList;

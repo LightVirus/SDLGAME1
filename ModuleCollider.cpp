@@ -26,27 +26,13 @@ void ModuleCollider::CheckAllCol()
 		{
 			if (itA != itB)
 			{
-				if (SDL_HasIntersection(&(*itA)->rect, &(*itB)->rect))
+				if ((*itA)->parent->type == road && (*itB)->parent->type == road) {}
+				else
 				{
-					(*itA)->parent->OnCollisionEnter((*itB)->parent);
-					
-					/*if ((*itA)->lastcollisions.empty() == false)
+					if (SDL_HasIntersection(&(*itA)->rect, &(*itB)->rect))
 					{
-						bool before = false;
-						for (list<Collider*>::iterator itC = (*itA)->lastcollisions.begin(); itC != (*itA)->lastcollisions.end(); ++itC)
-						{
-							if ((*itB) == (*itC))
-							{
-								before = true;
-							}
-						}
+						(*itA)->parent->OnCollisionEnter((*itB)->parent);
 					}
-					else
-					{
-						
-						(*itA)->lastcollisions.push_back(*itA);
-					}*/
-					
 				}
 			}
 		}

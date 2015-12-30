@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include "SDL/include/SDL.h"
+#include <vld.h>
 
 typedef unsigned int uint;
 typedef unsigned char uchar;
