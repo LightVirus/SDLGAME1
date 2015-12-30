@@ -63,6 +63,14 @@ enum item_type
 
 };*/
 
+enum SectorType
+{
+	water,
+	big,
+	estr,
+	bridge
+};
+
 // Configuration -----------
 #define SECTOR_END 2000
 #define DEBUG_ALPHA 150
