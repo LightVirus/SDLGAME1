@@ -22,10 +22,11 @@ public:
 	bool CleanUp();
 	update_status Update();
 	void const GoSound();
-	float roadvel = 100.0f;
+	float roadvel = 500.0f;
 	//void ControlToPlayer(controls cont, bool state);
 
 	Player* MainPlayer;
+	Sector* SetNextSector(Sector* last);
 private:
 	list<Sector> SectorsList;
 	
@@ -64,7 +65,14 @@ private:
 	//Sector
 	Sector SECTRectaBig;
 	Sector SECTCambioBigEstr;
-	
+	Sector SECTRectaMedEstr;
+	Sector SECTCurvaMedDerEstr;
+	Sector SECTRectaDerEstr;
+	Sector SECTCurvaDerMedEstr;
+	Sector SECTCurvaMedIzqEstr;
+	Sector SECTRectaIzqEstr;
+	Sector SECTCurvaIzqMedEstr;
+
 	Sector SECTTEST;
 	
 	//GameObjects

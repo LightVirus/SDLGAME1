@@ -157,6 +157,7 @@ bool ModuleScene::Start()
 
 	//Set Sectors
 	SECTRectaBig.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTRectaBig.type = big;
 	SECTRectaBig.AddRoadToSector(RectaMedBig);
 	SECTRectaBig.AddRoadToSector(RectaMedBig);
 	SECTRectaBig.AddRoadToSector(RectaMedBig);
@@ -169,6 +170,7 @@ bool ModuleScene::Start()
 	SECTRectaBig.AddRoadToSector(RectaMedBig);
 	
 	SECTCambioBigEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTCambioBigEstr.type = estr;
 	SECTCambioBigEstr.AddRoadToSector(RectaMedBig);
 	SECTCambioBigEstr.AddRoadToSector(RectaMedBig);
 	SECTCambioBigEstr.AddRoadToSector(RectaMedBig);
@@ -179,21 +181,101 @@ bool ModuleScene::Start()
 	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
 	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
 	SECTCambioBigEstr.AddRoadToSector(RectaMedEstr);
+
+	SECTRectaMedEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTRectaMedEstr.type = estr;
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTRectaMedEstr.AddRoadToSector(RectaMedEstr);
+
+	SECTCurvaMedDerEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTCurvaMedDerEstr.type = estrder;
+	SECTCurvaMedDerEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaMedDerEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaMedDerEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaMedDerEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaMedDerEstr.AddRoadToSector(CurvaMedDerEstr);
+	SECTCurvaMedDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTCurvaMedDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTCurvaMedDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTCurvaMedDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTCurvaMedDerEstr.AddRoadToSector(RectaDerEstr);
+
+	SECTRectaDerEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTRectaDerEstr.type = estrder;
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+	SECTRectaDerEstr.AddRoadToSector(RectaDerEstr);
+
+	SECTCurvaDerMedEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTCurvaDerMedEstr.type = estr;
+	SECTCurvaDerMedEstr.AddRoadToSector(RectaDerEstr);
+	SECTCurvaDerMedEstr.AddRoadToSector(RectaDerEstr);
+	SECTCurvaDerMedEstr.AddRoadToSector(RectaDerEstr);
+	SECTCurvaDerMedEstr.AddRoadToSector(RectaDerEstr);
+	SECTCurvaDerMedEstr.AddRoadToSector(CurvaDerMedEstr);
+	SECTCurvaDerMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaDerMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaDerMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaDerMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaDerMedEstr.AddRoadToSector(RectaMedEstr);
+
+	SECTCurvaMedIzqEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTCurvaMedIzqEstr.type = estrizq;
+	SECTCurvaMedIzqEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaMedIzqEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaMedIzqEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaMedIzqEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaMedIzqEstr.AddRoadToSector(CurvaMedIzqEstr);
+	SECTCurvaMedIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTCurvaMedIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTCurvaMedIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTCurvaMedIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTCurvaMedIzqEstr.AddRoadToSector(RectaIzqEstr);
+
+	SECTRectaIzqEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTRectaIzqEstr.type = estrizq;
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+	SECTRectaIzqEstr.AddRoadToSector(RectaIzqEstr);
+
+	SECTCurvaIzqMedEstr.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
+	SECTCurvaIzqMedEstr.type = estr;
+	SECTCurvaIzqMedEstr.AddRoadToSector(RectaIzqEstr);
+	SECTCurvaIzqMedEstr.AddRoadToSector(RectaIzqEstr);
+	SECTCurvaIzqMedEstr.AddRoadToSector(RectaIzqEstr);
+	SECTCurvaIzqMedEstr.AddRoadToSector(RectaIzqEstr);
+	SECTCurvaIzqMedEstr.AddRoadToSector(CurvaIzqMedEstr);
+	SECTCurvaIzqMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaIzqMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaIzqMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaIzqMedEstr.AddRoadToSector(RectaMedEstr);
+	SECTCurvaIzqMedEstr.AddRoadToSector(RectaMedEstr);
+
 	
 	SECTTEST.SetGameObj(ROAD_X, 0, 0, 0, true, road, false);
-	SECTTEST.AddRoadToSector(RectaMedBig);
-	SECTTEST.AddRoadToSector(RectaMedBig);
-	SECTTEST.AddRoadToSector(CambioBigEstr);
-	SECTTEST.AddRoadToSector(RectaMedEstr);
-	SECTTEST.AddRoadToSector(RectaMedEstr);
-	SECTTEST.AddRoadToSector(CurvaMedDerEstr);
-	SECTTEST.AddRoadToSector(RectaDerEstr);
-	SECTTEST.AddRoadToSector(CurvaDerMedEstr);
-	SECTTEST.AddRoadToSector(RectaMedEstr);
-	SECTTEST.AddRoadToSector(CurvaMedIzqEstr);
-	SECTTEST.AddRoadToSector(RectaIzqEstr);
-	SECTTEST.AddRoadToSector(CurvaIzqMedEstr);
-	SECTTEST.AddRoadToSector(RectaMedEstr);
+	
 
 
 	//Create GameObjects
@@ -237,22 +319,44 @@ update_status ModuleScene::Update()
 {
 	if (fristtime)
 	{
-		SectorsList.push_back(SECTTEST);
+		SectorsList.push_back(SECTRectaBig);
 		SectorsList.back().SetParent();
 		SectorsList.back().posp.y = SCREEN_HEIGHT;
+		
+		int nexty = (SectorsList.back().posp.y - SectorsList.back().SectorEnd());
+		SectorsList.push_back(SECTRectaBig);
+		SectorsList.back().SetParent();
+		SectorsList.back().posp.y = nexty;
 
 		for (list<Sector>::iterator itA = SectorsList.begin(); itA != SectorsList.end(); ++itA)
 		{
 			itA->CreateColOnSector();
 		}
 	}
-	else
-	{
-		App->collider->CheckAllCol();
-	}
-		
 	
-	//Road
+	// Create Sectors and delete them
+	if (SectorsList.front().posp.y > (SectorsList.front().SectorEnd() + 1300))
+	{
+		
+		SectorsList.front().DeleteSector();
+		list<Sector>::iterator it = SectorsList.begin();
+		it = SectorsList.erase(it);
+		LOG("Sector borrado");
+		
+		Sector* nextone = SetNextSector(&SectorsList.back());
+		int nexty = (SectorsList.back().posp.y - SectorsList.back().SectorEnd());
+		SectorsList.push_back(*nextone);
+		SectorsList.back().posp.y = nexty;
+		for (list<Sector>::iterator itA = SectorsList.begin(); itA != SectorsList.end(); ++itA)
+		{
+			itA->SetParent();
+		}
+		SectorsList.back().CreateColOnSector();
+		
+
+	}
+	
+	// Road
 	for (list<Sector>::iterator itA = SectorsList.begin(); itA != SectorsList.end(); ++itA)
 	{
 		itA->RoadUpdate(roadvel);
@@ -262,21 +366,19 @@ update_status ModuleScene::Update()
 	// Player
 	MainPlayer->Update();
 	
-	//Check Collision
 	
-	
-	//RenderGO
+	// RenderGO
 	for (list<Sector>::iterator itA = SectorsList.begin(); itA != SectorsList.end(); ++itA)
 	{
 		itA->RenderGameObj();
 	}
 	MainPlayer->RenderGameObj();
 	
-	// Colliders
+	// Render Colliders
 	if(MainPlayer->RenderCol)
 		App->collider->RenderCol();
 
-	//UI
+	// Render UI
 	App->renderer->Blit(mainui, 0, 0, NULL);
 
 	// FPS
@@ -297,6 +399,40 @@ update_status ModuleScene::Update()
 void const ModuleScene::GoSound()
 {
 	App->sound->PlaySoundE(effect1);
+}
+
+Sector * ModuleScene::SetNextSector(Sector* last)
+{
+	LOG("Añadiendo sector");
+	Sector* next = NULL;
+	srand(time(NULL));
+	int random = rand() % 10 + 1;
+	switch (last->type)
+	{
+	case big:
+		if (random > 0 && random <= 6)
+			return next = &SECTRectaBig;
+		if (random > 6 && random <= 10)
+			return next = &SECTCambioBigEstr;
+	case estr:
+		if (random > 0 && random <= 6)
+			return next = &SECTRectaMedEstr;
+		if (random > 6 && random <= 8)
+			return next = &SECTCurvaMedDerEstr;
+		if (random > 8 && random <= 10)
+			return next = &SECTCurvaMedIzqEstr;
+	case estrder:
+		if (random > 0 && random <= 6)
+			return next = &SECTRectaDerEstr;
+		if (random > 6 && random <= 10)
+			return next = &SECTCurvaDerMedEstr;
+	case estrizq:
+		if (random > 0 && random <= 6)
+			return next = &SECTRectaIzqEstr;
+		if (random > 6 && random <= 10)
+			return next = &SECTCurvaIzqMedEstr;
+	}
+	return nullptr;
 }
 
 /*void ModuleScene::ControlToPlayer(controls cont, bool state)

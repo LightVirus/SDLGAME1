@@ -56,8 +56,8 @@ void Player::Update()
 	posp.x = posp.x + (xvel * App->timer->deltatime);
 	
 	//Collider
-	col->rect.x = col->parent->posp.x - (col->rect.w / 2);
-	col->rect.y = col->parent->posp.y;
+	col->rect.x = posp.x - (col->rect.w / 2);
+	col->rect.y = posp.y;
 }
 
 void Player::OnCollisionEnter(GameObject * ColWith)

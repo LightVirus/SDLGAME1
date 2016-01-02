@@ -15,7 +15,7 @@ public:
 
 	std::list<Road> roads;
 	bool deleteme = false;
-
+	SectorType type;
 	void AddRoadToSector(Road road)
 	{
 		int final = SectorEnd();
@@ -69,7 +69,13 @@ public:
 			App->renderer->Blit(it->texture, it->posp.x, it->posp.y, NULL);
 		}
 	}
-
+	void DeleteSector()
+	{
+		for (list<Road>::iterator it = roads.begin(); it != roads.end(); it++)
+		{
+			it->DelColForRoad();
+		}
+	}
 
 
 };

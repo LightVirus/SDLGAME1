@@ -1,6 +1,8 @@
 #pragma once
 #include <windows.h>
 #include <stdio.h>
+#include <stdlib.h> 
+#include <time.h>
 #include "SDL/include/SDL.h"
 #include <vld.h>
 
@@ -68,6 +70,8 @@ enum SectorType
 	water,
 	big,
 	estr,
+	estrder,
+	estrizq,
 	bridge
 };
 

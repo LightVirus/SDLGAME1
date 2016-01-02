@@ -20,18 +20,18 @@ ModuleCollider::~ModuleCollider()
 
 void ModuleCollider::CheckAllCol()
 {
-	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
 	{
-		for (list<Collider*>::iterator itB = Colliders.begin(); itB != Colliders.end(); ++itB)
+		for (list<Collider>::iterator itB = Colliders.begin(); itB != Colliders.end(); ++itB)
 		{
 			if (itA != itB)
 			{
-				if ((*itA)->parent->type == road && (*itB)->parent->type == road) {}
+				if (itA->parent->type == road && itB->parent->type == road) {}
 				else
 				{
-					if (SDL_HasIntersection(&(*itA)->rect, &(*itB)->rect))
+					if (SDL_HasIntersection(&itA->rect, &itB->rect))
 					{
-						(*itA)->parent->OnCollisionEnter((*itB)->parent);
+						itA->parent->OnCollisionEnter(itB->parent);
 					}
 				}
 			}
@@ -41,9 +41,10 @@ void ModuleCollider::CheckAllCol()
 
 Collider* ModuleCollider::CreateCol(SDL_Rect box, item_type type, GameObject * parent)
 {
-	Collider* col = new Collider();
+	Collider col;
 	Colliders.push_back(col);
-	Collider* pointer = Colliders.back();
+	Collider* pointer = &Colliders.back();
+	pointer->deleteme = false;
 	pointer->localrect = box;
 	pointer->parent = parent;
 	pointer->rect = box;
@@ -95,12 +96,11 @@ Collider* ModuleCollider::DelCol(Collider * col)
 
 void ModuleCollider::DelMarkedCol()
 {
-	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end();)
+	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end();)
 	{
-		if ((*itA)->deleteme)
+		if (itA->deleteme)
 		{
-			RELEASE(*itA);
-			Colliders.erase(itA);
+			itA = Colliders.erase(itA);
 		}
 		else
 			++itA;
@@ -109,9 +109,9 @@ void ModuleCollider::DelMarkedCol()
 
 void ModuleCollider::RenderCol()
 {
-	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
 	{
-		App->renderer->BlitCollider((*itA)->color, (*itA)->rect);
+		App->renderer->BlitCollider(itA->color, itA->rect);
 	}
 }
 
@@ -160,19 +160,37 @@ void ModuleCollider::RenderCol()
 
 void ModuleCollider::UpdateCol()
 {
-	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
+	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end(); ++itA)
 	{
-		(*itA)->rect.x = (*itA)->parent->posp.x - ((*itA)->rect.w / 2);
-		(*itA)->rect.y = (*itA)->parent->posp.y;
+		if (itA->parent->type != road)
+		{
+			itA->rect.x = itA->parent->posp.x - (itA->rect.w / 2);
+			itA->rect.y = itA->parent->posp.y;
+		}
+		else
+		{
+			itA->rect.x = itA->parent->posp.x + itA->localrect.x;
+			itA->rect.y = itA->parent->posp.y + itA->localrect.y;
+		}
+		
 	}
 }
 
 bool ModuleCollider::CleanUp()
 {
-	for (list<Collider*>::iterator itA = Colliders.begin(); itA != Colliders.end(); itA++)
+	for (list<Collider>::iterator itA = Colliders.begin(); itA != Colliders.end();)
 	{
-		RELEASE(*itA);
+		itA = Colliders.erase(itA);
 	}
 	Colliders.clear();
 	return true;
+}
+
+update_status ModuleCollider::PreUpdate()
+{
+	//Delete any marked colliders
+	DelMarkedCol();
+	//UpdateCol();
+	CheckAllCol();
+	return UPDATE_CONTINUE;
 }

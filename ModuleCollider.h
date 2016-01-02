@@ -13,7 +13,7 @@ public:
 	ModuleCollider();
 	~ModuleCollider();
 
-	std::list<Collider*> Colliders;
+	std::list<Collider> Colliders;
 
 	void CheckAllCol();
 
@@ -29,5 +29,6 @@ public:
 	//bool Collision(SDL_Rect a, SDL_Rect b);
 	void UpdateCol();
 	bool CleanUp();
+	update_status PreUpdate();
 };
 
